@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shadowrocket 小火箭入门：怎么导入配置，为什么开了 VPN 还是不能用 · 小宇</title>
+<meta name="description" content="Shadowrocket小火箭新手教程：了解应用与机场订阅的区别，按服务商说明导入配置、选择连接，并排查VPN图标出现但无法访问和换网络后失效等问题。">
+<meta name="keywords" content="Shadowrocket教程,小火箭配置,机场教程,机场节点,机场使用体验,科学上网,爬梯子,翻墙工具,节点测速,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/shadowrocket-setup-connection-fixes/">
+<meta property="og:title" content="Shadowrocket 小火箭入门：怎么导入配置，为什么开了 VPN 还是不能用">
+<meta property="og:description" content="Shadowrocket小火箭新手教程：了解应用与机场订阅的区别，按服务商说明导入配置、选择连接，并排查VPN图标出现但无法访问和换网络后失效等问题。">
+<meta property="og:url" content="https://haopianyi.blog/posts/shadowrocket-setup-connection-fixes/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shadowrocket 小火箭入门：怎么导入配置，为什么开了 VPN 还是不能用">
+<meta name="twitter:description" content="Shadowrocket小火箭新手教程：了解应用与机场订阅的区别，按服务商说明导入配置、选择连接，并排查VPN图标出现但无法访问和换网络后失效等问题。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-10-10T00:53:57&#43;08:00"><meta property="article:modified_time" content="2026-10-10T00:54:33&#43;08:00"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网"><meta property="article:tag" content="Shadowrocket">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/shadowrocket-setup-connection-fixes/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-10-10T00:54:33+08:00","datePublished":"2026-10-10T00:53:57+08:00","description":"Shadowrocket小火箭新手教程：了解应用与机场订阅的区别，按服务商说明导入配置、选择连接，并排查VPN图标出现但无法访问和换网络后失效等问题。","headline":"Shadowrocket 小火箭入门：怎么导入配置，为什么开了 VPN 还是不能用","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/shadowrocket-setup-connection-fixes/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/shadowrocket-setup-connection-fixes/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/shadowrocket-setup-connection-fixes/","name":"Shadowrocket 小火箭入门：怎么导入配置，为什么开了 VPN 还是不能用","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">Shadowrocket 小火箭入门：怎么导入配置，为什么开了 VPN 还是不能用</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">Shadowrocket 小火箭入门：怎么导入配置，为什么开了 VPN 还是不能用</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-10-10T00:53:57&#43;08:00">2026-10-10</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/client-guides/">客户端教程</a></div>
+</header>
+<div class="prose"><p>小火箭开关打开了，顶部也出现 VPN 标志，却还是不能访问需要的网站，先别重复购买应用。这个标志通常表示系统的相关连接已经启动，不能证明服务套餐、所选节点和网站访问都正常。</p>
+<p>Shadowrocket 常被叫作“小火箭”。把软件、服务和规则三件事分开检查，排查会轻松很多。</p>
+<h2 id="heading">买了小火箭，还需要什么？</h2>
+<p>Shadowrocket 的官方商店页面明确说明：它是独立的网络工具，不包含代理服务，用户需要自备配置。它也提供规则管理和网络测量等功能。<a href="https://apps.apple.com/us/app/shadowrocket/id932747118">Shadowrocket 官方商店页面</a>。</p>
+<p>因此，先在 App Store 核对应用名称和开发者，再确认自己已经有适用的服务或配置。应用购买费与机场服务费是两笔钱；应用能打开，也不代表服务已经生效。</p>
+<p>不同商店地区的购买条件可能不同，以自己的 App Store 页面为准。不要为了导入配置，就把 Apple 账号密码交给服务商。</p>
+<h2 id="heading-1">按服务商提供的方式导入</h2>
+<p>先打开服务商自己的使用说明，找到 Shadowrocket 对应的导入方式。常见的是复制订阅链接、扫描配置二维码，或使用一键导入。具体入口和支持的配置形式，以当前软件界面与服务商说明为准。</p>
+<p>如果使用一键导入，确认系统准备打开的是 Shadowrocket，并在应用里检查新增了哪些内容。如果手动填写，确认粘贴的是订阅或配置地址，不能用账号登录页面替代。</p>
+<p>完成后查看是否出现节点，也就是可选择的连接出口。只显示一个订阅名字、却没有任何连接，不应急着打开开关；先回到服务商后台确认套餐有效，并更新订阅。</p>
+<p>完整订阅链接和配置二维码可能包含账号识别信息。求助时只发送错误提示和遮住敏感部分的截图；不要将它们贴在文章评论或公开群里。</p>
+<h2 id="heading-2">先选连接，再打开开关</h2>
+<p>导入完成后，先选择一条节点，再按服务商说明选择日常使用的规则或路由选项。首次启动时，系统可能要求允许添加 VPN 配置；核对是自己刚安装的应用发起后，再按系统提示完成。</p>
+<p>连接后做两个检查：普通网页是否正常，你需要的网站是否正常。还可以换一个网站作比较，避免把单个网站的故障当成整个网络问题。</p>
+<p>按钮变色或 VPN 标志出现，是检查过程中的一个信号；真正完成你要做的任务，才算这次连接有效。</p>
+<h2 id="heading-3">问题一：导入了，却没有节点</h2>
+<p>先检查链接是否复制完整，有没有误用其他客户端的专用格式；再检查套餐是否到期、是否需要更新订阅。</p>
+<p>如果服务商列了多种导入入口，选择明确写着适用于 Shadowrocket 的那一种。能扫描一个二维码，不代表这个二维码里的内容就适合当前软件。</p>
+<p>向服务商求助时，可以说明“配置已经导入，但没有连接列表”，并附上错误文字。这样比只发一句“不能用”更容易得到有针对性的回答。</p>
+<h2 id="heading-4">问题二：节点能测到，却打不开网页</h2>
+<p>测得一个回应，并不能证明网页请求也正常。先换另一条节点，保持其他设置不动；再检查规则是否把目标网站安排到了预期出口。</p>
+<p>不同工具会区分规则、统一出口和直接连接等方式。理解这些选项时，可参考<a href="https://www.clashverge.dev/guide/term.html">Clash 官方的模式解释</a>，但 Shadowrocket 的具体按钮应以它自己的界面为准。</p>
+<p>每次只改一项，并记录改动。把规则、连接和其他开关一起改，往往会让原本的小问题更难找。</p>
+<h2 id="wi-fi-">问题三：Wi-Fi 能用，手机流量不能用</h2>
+<p>先关闭工具，确认手机流量本身正常。再重新启动连接，用同一个目标网页作比较；必要时换另一条节点。</p>
+<p>记录“哪个网络能用、哪个不能用”，并附上设备系统与软件版本。这些信息能帮助判断问题与网络、节点还是软件有关，不能只凭一次失败就下结论。</p>
+<h2 id="-ai-">问题四：某个 AI 或视频平台不能用</h2>
+<p>能访问一般网页，不代表每个平台都能使用。还要核对目标平台的账号状态、地区要求和服务公告。</p>
+<p>如果网站能打开，但提示账号无权限，继续反复测速通常解决不了账号问题。先读提示，再处理提示指出的事项，省下无效折腾的时间。</p>
+<h2 id="heading-5">日常使用，保留一个简单记录</h2>
+<p>记住自己最近一次正常工作的节点和配置。更新前查看服务商说明，更新后检查真实任务；遇到问题时写下时间、网络和错误文字。</p>
+<p>小火箭的功能很多，新手先学会导入、选连接、开关和基本排查就够了。用得到的功能逐步学习，比一次装满陌生规则更容易维护。</p>
+<p><em>资料核对日期：2026 年 10 月 10 日。应用能力依据官方商店页面，具体导入步骤应结合服务商与当前版本说明；本文未进行真实节点测速。</em></p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a><a href="https://haopianyi.blog/tags/shadowrocket/"># Shadowrocket</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/ai-chatgpt-beginner-practical-guide/">← 上一篇</a><a href="https://haopianyi.blog/posts/clash-verge-subscription-troubleshooting/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">买了小火箭，还需要什么？</a><a class="level-2" href="#heading-1">按服务商提供的方式导入</a><a class="level-2" href="#heading-2">先选连接，再打开开关</a><a class="level-2" href="#heading-3">问题一：导入了，却没有节点</a><a class="level-2" href="#heading-4">问题二：节点能测到，却打不开网页</a><a class="level-2" href="#wi-fi-">问题三：Wi-Fi 能用，手机流量不能用</a><a class="level-2" href="#-ai-">问题四：某个 AI 或视频平台不能用</a><a class="level-2" href="#heading-5">日常使用，保留一个简单记录</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/8242dec8-6efd-4a62-aa44-7cf0ff10cce0/","pageTitle":"Shadowrocket 小火箭入门：怎么导入配置，为什么开了 VPN 还是不能用","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
