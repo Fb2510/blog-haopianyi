@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clash TUN 模式怎么开？Windows 服务模式与开关失效排查 · 小宇</title>
+<meta name="description" content="Clash TUN 模式打不开怎么办？用通俗语言介绍 Windows 服务模式、管理员运行和安全检查提示，附开启步骤与断网排查思路，帮助科学上网新手减少无效折腾。">
+<meta name="keywords" content="Clash教程,TUN模式,Clash服务模式,科学上网,翻墙故障排查,网络代理教程">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-10-12-clash-tun-windows/">
+<meta property="og:title" content="Clash TUN 模式怎么开？Windows 服务模式与开关失效排查">
+<meta property="og:description" content="Clash TUN 模式打不开怎么办？用通俗语言介绍 Windows 服务模式、管理员运行和安全检查提示，附开启步骤与断网排查思路，帮助科学上网新手减少无效折腾。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-10-12-clash-tun-windows/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clash TUN 模式怎么开？Windows 服务模式与开关失效排查">
+<meta name="twitter:description" content="Clash TUN 模式打不开怎么办？用通俗语言介绍 Windows 服务模式、管理员运行和安全检查提示，附开启步骤与断网排查思路，帮助科学上网新手减少无效折腾。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-10-12T09:04:29&#43;08:00"><meta property="article:modified_time" content="2026-10-12T09:04:35&#43;08:00"><meta property="article:tag" content="Clash"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-10-12-clash-tun-windows/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-10-12T09:04:35+08:00","datePublished":"2026-10-12T09:04:29+08:00","description":"Clash TUN 模式打不开怎么办？用通俗语言介绍 Windows 服务模式、管理员运行和安全检查提示，附开启步骤与断网排查思路，帮助科学上网新手减少无效折腾。","headline":"Clash TUN 模式怎么开？Windows 服务模式与开关失效排查","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-10-12-clash-tun-windows/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-10-12-clash-tun-windows/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-10-12-clash-tun-windows/","name":"Clash TUN 模式怎么开？Windows 服务模式与开关失效排查","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">Clash TUN 模式怎么开？Windows 服务模式与开关失效排查</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">Clash TUN 模式怎么开？Windows 服务模式与开关失效排查</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-10-12T09:04:29&#43;08:00">2026-10-12</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/client-guides/">客户端教程</a></div>
+</header>
+<div class="prose"><p>使用 Clash 科学上网时，浏览器能访问，某个软件却一直连不上；想试试 TUN，开关又打不开。先看提示是否提到服务或权限，再决定下一步，反复换机场节点不一定能解决这类问题。</p>
+<p>本文以 <strong>Windows 上的 Clash Verge Rev</strong> 为例，资料核对日期为 <strong>2026 年 10 月 12 日</strong>。其他 Clash 客户端的入口可能不同。</p>
+<h2 id="tun-">TUN 是什么，什么时候值得试？</h2>
+<p>TUN 可以理解成电脑里的“虚拟网络入口”，让部分不读取系统代理设置的软件，也能把联网请求交给代理工具处理。系统代理则像给应用留了一张“请从这里联网”的通知，并非所有应用都会照做。<a href="https://www.clashverge.dev/guide/quickstart.html">来源：官方快速入门</a></p>
+<p>如果系统代理已经满足日常需求，先保持现有设置。只有某个程序不走系统代理、确实需要另一种接管方式时，再尝试 TUN，方便比较前后差别。</p>
+<p>**TUN 与全局模式是两回事。**前者管请求怎样进入工具，后者管进入后的请求从哪里出去。开启 TUN 后，规则仍会影响哪些请求直连、哪些走代理，不能把开关开启理解成所有请求都用了机场服务。<a href="https://www.clashverge.dev/guide/term.html">来源：代理方式与路由模式说明</a></p>
+<h2 id="heading">服务模式：给联网组件准备所需权限</h2>
+<p>“服务模式”可以理解为一个后台帮手，用合适的系统权限启动真正处理连接的组件。官方说明，安装并启动服务后，可以用普通用户身份打开客户端并使用 TUN。<a href="https://www.clashverge.dev/guide/term.html">来源：服务模式说明</a></p>
+<p>因此，“软件窗口能打开”和“处理 TUN 的组件有足够权限”，是两个需要分别检查的环节。</p>
+<h2 id="heading-1">按这个顺序开启</h2>
+<ol>
+<li>先确认订阅已启用，并选好一条可用连接。保留当前能工作的配置。</li>
+<li>打开“设置 → 服务模式”，按界面提示安装服务，并完成 Windows 管理员授权。</li>
+<li>确认首页显示服务模式，再开启 TUN 或虚拟网卡开关。具体名称以安装版本为准。</li>
+<li>重新打开刚才不能联网的应用，完成同一个操作；再检查普通网页是否正常。</li>
+</ol>
+<p>服务安装与状态确认可参考<a href="https://www.clashverge.dev/faq/windows.html">官方 Windows 问题说明</a>。测试时保持节点和规则不变，只切换 TUN，更容易判断这次变化有没有帮助。</p>
+<h2 id="heading-2">提示“未通过安全检查”怎么办？</h2>
+<p>看到“服务内核未通过安全检查，已切换到普通模式（Sidecar）”，意思是服务检查了程序文件和目录权限，没有认可当前安装位置。Sidecar 在这里可以理解成普通运行方式；以普通用户权限运行时，无法使用 TUN。<a href="https://www.clashverge.dev/faq/windows.html">来源：官方安全检查说明</a></p>
+<p>若软件放在桌面、下载目录或自行解压的文件夹里，可先备份配置，再用官方安装包安装到默认位置，之后重新安装服务。若已在默认位置仍报错，复制完整提示，让熟悉 Windows 权限的管理员查看具体路径。<a href="https://www.clashverge.dev/faq/windows.html">来源：官方恢复服务模式步骤</a></p>
+<p>不要照着陌生命令重置整个 C 盘的权限。官方也明确提醒，这样可能破坏系统和其他应用的权限。排查这条提示，应围绕报错指出的位置进行。</p>
+<h2 id="heading-3">能否先用管理员身份运行？</h2>
+<p>官方提供了这个替代办法：从托盘菜单彻底退出软件，右键快捷方式选择“以管理员身份运行”；若出现相关提示，可选“继续使用 Sidecar”，再开启 TUN。以后沿用此方式，也需要管理员身份启动，它不会自动修好原来的目录权限。<a href="https://www.clashverge.dev/faq/windows.html">来源：官方管理员运行说明</a></p>
+<p>如果设备没有可用的管理员授权，先沿用能工作的系统代理，并请设备管理员处理权限问题。</p>
+<h2 id="heading-4">开启后反而断网，先恢复再查</h2>
+<p>先关闭 TUN，回到之前能工作的设置，看看网络是否恢复。然后记录是所有连接失败，还是只有某个软件失败，每次只调整一项。</p>
+<p>如果提示涉及防火墙，按文档核对实际使用的联网组件。Mihomo 官方文档提供了 Windows“允许应用通过防火墙”的处理方式；相关要求与所用配置有关，别把关闭全部防护当成固定步骤。<a href="https://wiki.metacubex.one/config/inbound/tun/#stack">来源：Mihomo TUN 配置说明</a></p>
+<p>仍无法解决时，记录系统、客户端版本、错误时间和完整提示，再按<a href="https://www.clashverge.dev/guide/log.html">官方日志说明</a>重现一次问题并取得对应日志。求助时遮住订阅链接等账号信息。这些记录比一句“翻墙不能用”更方便定位原因。</p>
+<p><em>功能与权限处理依据项目官方文档；测试及记录顺序为本站编辑建议，未进行真实节点测速。</em></p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/clash/"># Clash</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/airport-value-selection-guide/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-10-11-chatgpt-context/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#tun-">TUN 是什么，什么时候值得试？</a><a class="level-2" href="#heading">服务模式：给联网组件准备所需权限</a><a class="level-2" href="#heading-1">按这个顺序开启</a><a class="level-2" href="#heading-2">提示“未通过安全检查”怎么办？</a><a class="level-2" href="#heading-3">能否先用管理员身份运行？</a><a class="level-2" href="#heading-4">开启后反而断网，先恢复再查</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/91bdbb21-bd30-42a9-a569-cd6ba0c75c00/","pageTitle":"Clash TUN 模式怎么开？Windows 服务模式与开关失效排查","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
