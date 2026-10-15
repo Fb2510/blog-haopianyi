@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clash更新订阅后规则失效？自定义设置这样保留 · 小宇</title>
+<meta name="description" content="Clash订阅更新后自定义规则失效怎么办？介绍Clash Verge Rev编辑规则入口、前置规则、网站匹配与模式检查，解释整份列表被替换的常见误区，帮助新手保留设置并排查科学上网问题。">
+<meta name="keywords" content="Clash教程,Clash Verge Rev,订阅更新,自定义规则,科学上网,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-10-15-clash-persistent-rules/">
+<meta property="og:title" content="Clash更新订阅后规则失效？自定义设置这样保留">
+<meta property="og:description" content="Clash订阅更新后自定义规则失效怎么办？介绍Clash Verge Rev编辑规则入口、前置规则、网站匹配与模式检查，解释整份列表被替换的常见误区，帮助新手保留设置并排查科学上网问题。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-10-15-clash-persistent-rules/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clash更新订阅后规则失效？自定义设置这样保留">
+<meta name="twitter:description" content="Clash订阅更新后自定义规则失效怎么办？介绍Clash Verge Rev编辑规则入口、前置规则、网站匹配与模式检查，解释整份列表被替换的常见误区，帮助新手保留设置并排查科学上网问题。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-10-15T09:02:03&#43;08:00"><meta property="article:modified_time" content="2026-10-15T09:02:14&#43;08:00"><meta property="article:tag" content="Clash"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-10-15-clash-persistent-rules/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-10-15T09:02:14+08:00","datePublished":"2026-10-15T09:02:03+08:00","description":"Clash订阅更新后自定义规则失效怎么办？介绍Clash Verge Rev编辑规则入口、前置规则、网站匹配与模式检查，解释整份列表被替换的常见误区，帮助新手保留设置并排查科学上网问题。","headline":"Clash更新订阅后规则失效？自定义设置这样保留","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-10-15-clash-persistent-rules/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-10-15-clash-persistent-rules/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-10-15-clash-persistent-rules/","name":"Clash更新订阅后规则失效？自定义设置这样保留","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">Clash更新订阅后规则失效？自定义设置这样保留</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">Clash更新订阅后规则失效？自定义设置这样保留</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-10-15T09:02:03&#43;08:00">2026-10-15</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/client-guides/">客户端教程</a></div>
+</header>
+<div class="prose"><p>刚给某个网站设置了直连，更新一次机场订阅，设置却像没生效一样。遇到这种情况，先检查修改放在哪里，再看是否选中了正确配置，不必立刻换节点或重装软件。</p>
+<p>本文以电脑端 <strong>Clash Verge Rev</strong> 为例，解决“自定义规则怎样在订阅更新后继续保留”这个问题。资料核对日期：<strong>2026 年 10 月 15 日</strong>；其他客户端的入口可能不同。</p>
+<h2 id="heading">先分清订阅与自己的规则</h2>
+<p>订阅可以理解为服务商提供的连接清单和使用安排。自定义规则则像你另外写的路线要求：某个网站直接连接，或者交给某一组代理节点处理。</p>
+<p>如果是在下载来的订阅原文里直接改，更新后就需要检查这些修改有没有被新内容覆盖。Clash Verge Rev 官方为这类需求提供了“编辑规则”入口，并明确说明，通过这里编辑的规则不会随订阅更新而失效。<a href="https://www.clashverge.dev/guide/rules.html">官方自定义规则说明</a></p>
+<p>可以把服务商的内容和自己的小调整分开保存。这样需要更新节点时，个人使用习惯也更容易核对和恢复。</p>
+<h2 id="heading-1">只改一份订阅，从“编辑规则”开始</h2>
+<p>动手前，记下当前订阅名称、节点选择和准备修改的网站，保留一份能正常工作的配置。下面只添加一条简单规则：</p>
+<ol>
+<li>打开“订阅”页面，找到正在使用的那张订阅卡片。</li>
+<li>右键点击它，选择“编辑规则”，进入添加规则的界面。</li>
+<li>先选择“前置规则”，也就是放在原订阅规则前面检查的要求。</li>
+<li>选择要匹配的网站类型，填写网站名称，并选好直连或现有代理分组，保存后确认正在使用的仍是这份订阅。</li>
+</ol>
+<p>入口和插入位置依据<a href="https://www.clashverge.dev/guide/rules.html">官方配置步骤</a>。每次只加一条，先确认效果，再继续下一项，出问题时更容易找到刚才改了什么。</p>
+<h2 id="heading-2">网站类型与出口，怎样填才清楚？</h2>
+<p>“域名”就是网站的名称部分，例如 <a href="http://www.example.com">www.example.com</a>。这里只演示写法，实际使用时要换成你需要调整的网站名称。</p>
+<table>
+<thead>
+<tr>
+<th>界面中可能看到的名称</th>
+<th>通俗理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DOMAIN</td>
+<td>只匹配填写的那个完整网站名称</td>
+</tr>
+<tr>
+<td>DOMAIN-SUFFIX</td>
+<td>匹配这个主域名和它下面的子域名</td>
+</tr>
+<tr>
+<td>DIRECT</td>
+<td>使用原来的网络直接连接</td>
+</tr>
+<tr>
+<td>代理组名称</td>
+<td>把请求交给当前配置里已有的那一组连接</td>
+</tr>
+</tbody>
+</table>
+<p>例如，完整域名规则填 <a href="http://www.example.com">www.example.com</a>，不会自动把 mail.example.com 也算进去；后缀规则填 example.com，则可以包括这两个名称。<a href="https://wiki.metacubex.one/config/rules/">Mihomo 官方域名规则说明</a></p>
+<p>选择代理分组时，沿用自己配置里实际存在的名称。别把别人的“自动选择”或“节点选择”原样照搬：自己的订阅没有这个分组，规则就无法按预期工作。</p>
+<h2 id="heading-3">保存了却没变化，先查模式和顺序</h2>
+<p>先确认软件处于“规则”模式。它按规则决定连接从哪里出去；“全局”和“直连”模式使用不同的安排，不能拿它们判断刚添加的分流规则是否生效。分流，就是让不同请求走不同路线。<a href="https://www.clashverge.dev/guide/term.html">官方模式解释</a></p>
+<p>再看规则顺序。规则通常从上往下检查，前面的匹配结果会影响后面的规则能否轮到。把特定网站的要求放在前面，更容易避免先被范围很大的规则接住；也不要在它前面放一条匹配所有请求的兜底规则。<a href="https://wiki.metacubex.one/config/rules/">Mihomo 官方优先级说明</a></p>
+<h2 id="heading-4">不要把“增加一条”变成“换掉整份列表”</h2>
+<p>有些旧教程让人直接在“全局扩展配置”里粘贴一小段规则。这里的“扩展”可以理解为额外加到订阅上的调整，但不同内容的合并方式并不相同。</p>
+<p>当前官方文档说明，扩展配置里写出的规则列表会整体替换对应列表，并不自动理解成“在原规则前增加一条”。如果只是为一份订阅加少量网站要求，优先使用前面的可视化编辑入口。<a href="https://www.clashverge.dev/guide/extend.html">官方扩展合并规则</a></p>
+<p>希望所有订阅都保留同一组附加规则，又不替换原有列表时，项目维护者提供的方向是全局扩展脚本。新手可以等单份订阅的设置正常后，再按官方示例学习，不必一次完成全部高级调整。<a href="https://github.com/clash-verge-rev/clash-verge-rev/discussions/6717">维护者答复</a></p>
+<h2 id="heading-5">最后做一次更新前后对照</h2>
+<p>保存后重新打开目标网页，检查日常操作是否正常；再更新一次订阅，回到“编辑规则”查看条目是否还在，并重复相同操作。如果只在切换另一份订阅后失效，先确认那份订阅有没有自己的规则。</p>
+<p>如果修改后异常，先撤回刚添加的那条，回到原来能工作的状态。记录订阅名称、修改内容和前后结果，比反复换节点更有帮助。做好这一步，日常科学上网和机场使用体验的排查就更有条理。</p>
+<p><em>功能说明依据项目官方文档；备份、对照和恢复顺序为本站编辑建议，未进行真实机场测速。</em></p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/clash/"># Clash</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/99ba-airport-trial-guide-2026/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先分清订阅与自己的规则</a><a class="level-2" href="#heading-1">只改一份订阅，从“编辑规则”开始</a><a class="level-2" href="#heading-2">网站类型与出口，怎样填才清楚？</a><a class="level-2" href="#heading-3">保存了却没变化，先查模式和顺序</a><a class="level-2" href="#heading-4">不要把“增加一条”变成“换掉整份列表”</a><a class="level-2" href="#heading-5">最后做一次更新前后对照</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/367d8f9c-fa07-41e6-9414-9315e6597a3c/","pageTitle":"Clash更新订阅后规则失效？自定义设置这样保留","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
