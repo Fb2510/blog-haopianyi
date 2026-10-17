@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>机场测速100Mbps，下载只有10MB/s？先看单位 · 小宇</title>
+<meta name="description" content="机场测速100Mbps，下载只有10MB/s是怎么回事？用通俗例子说明Mbps与MB/s的换算，教你确认节点测速路径、区分下载速度与等待时间，并按同一条件排查网络问题。">
+<meta name="keywords" content="机场测速,节点测速,机场使用体验,下载速度,Mbps与MB/s,科学上网">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-10-17-speed-units/">
+<meta property="og:title" content="机场测速100Mbps，下载只有10MB/s？先看单位">
+<meta property="og:description" content="机场测速100Mbps，下载只有10MB/s是怎么回事？用通俗例子说明Mbps与MB/s的换算，教你确认节点测速路径、区分下载速度与等待时间，并按同一条件排查网络问题。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-10-17-speed-units/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机场测速100Mbps，下载只有10MB/s？先看单位">
+<meta name="twitter:description" content="机场测速100Mbps，下载只有10MB/s是怎么回事？用通俗例子说明Mbps与MB/s的换算，教你确认节点测速路径、区分下载速度与等待时间，并按同一条件排查网络问题。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-10-17T09:02:57&#43;08:00"><meta property="article:modified_time" content="2026-10-17T09:03:25&#43;08:00"><meta property="article:tag" content="网络工具"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-10-17-speed-units/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-10-17T09:03:25+08:00","datePublished":"2026-10-17T09:02:57+08:00","description":"机场测速100Mbps，下载只有10MB/s是怎么回事？用通俗例子说明Mbps与MB/s的换算，教你确认节点测速路径、区分下载速度与等待时间，并按同一条件排查网络问题。","headline":"机场测速100Mbps，下载只有10MB/s？先看单位","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-10-17-speed-units/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-10-17-speed-units/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-10-17-speed-units/","name":"机场测速100Mbps，下载只有10MB/s？先看单位","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">机场测速100Mbps，下载只有10MB/s？先看单位</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">机场测速100Mbps，下载只有10MB/s？先看单位</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-10-17T09:02:57&#43;08:00">2026-10-17</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/vpn-tools/">VPN与网络工具</a></div>
+</header>
+<div class="prose"><p>机场测速显示 100Mbps，下载文件时却只有 10MB/s，是不是速度掉了九成？先别直接比较 100 和 10，它们使用的计量单位不同。把单位换成一样，再检查网络，才更容易找准问题。</p>
+<p>本文解决这个常见的读数误会，资料核对日期为 <strong>2026 年 10 月 17 日</strong>。下文数字都是算术示例，未对任何机场节点进行真实测速。</p>
+<h2 id="-b--b">小写 b 和大写 B，差在哪里？</h2>
+<p>Mbps 和 MB/s 都可以表示每秒传多少数据，但小写 b 表示比特，大写 B 表示字节。可以先记住一个关系：<strong>一个字节等于八个比特</strong>。Verizon 的官方说明也用这一关系区分两类单位。<a href="https://www.verizon.com/home/internet/guides/what-is-the-difference-between-mbps-and-kbps/">单位说明</a></p>
+<p>不必背英文全称，日常比较时记住：</p>
+<ul>
+<li>从 Mbps 换成 MB/s，把数字除以 8。</li>
+<li>从 MB/s 换成 Mbps，把数字乘以 8。</li>
+</ul>
+<p>因此，100Mbps 对应的单位换算结果是 12.5MB/s；10MB/s 则对应 80Mbps。不能把“10 除以 100”当作实际速度只剩十分之一。</p>
+<h2 id="heading">一张简单换算表</h2>
+<table>
+<thead>
+<tr>
+<th>以 Mbps 表示的速度</th>
+<th>换成 MB/s 的数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80Mbps</td>
+<td>10MB/s</td>
+</tr>
+<tr>
+<td>100Mbps</td>
+<td>12.5MB/s</td>
+</tr>
+<tr>
+<td>400Mbps</td>
+<td>50MB/s</td>
+</tr>
+<tr>
+<td>1000Mbps</td>
+<td>125MB/s</td>
+</tr>
+</tbody>
+</table>
+<p>表格只是同一速度换一种写法，不是保证文件下载一定达到这个数值。AT&amp;T 的官方说明同样区分 Mbps 与 MB/s，并指出实际传输还受设备、无线网络和远端服务器影响。<a href="https://www.att.com/blog/mbps-vs-gbps//">换算与实际速度说明</a></p>
+<p>读数时把单位一起记下来。只发一句“我这里跑到 100”，别人无法判断你说的是网速、文件下载，还是连接等待时间。</p>
+<h2 id="heading-1">为什么换算后，下载仍然慢一些？</h2>
+<p>测速网页和文件下载，未必访问同一台服务器，也未必走同一条路线。某个测速点表现不错，不能直接推断另一个网站也会给出相同速度。</p>
+<p>例如 FAST.com 官方说明，它通过与 Netflix 服务器之间的下载和上传来估计连接速度。这说明的是这项测试怎样进行，不能据此把结果当成每个下载网站的保证。<a href="https://fast.com/">FAST.com 官方常见问题</a></p>
+<p>下载来源的发送能力、同一网络里其他设备的活动、Wi-Fi 信号和电脑本身，都可能影响最后看到的速度。换算解决的是“数字怎样比较”，不能单靠这一步解释全部差距。<a href="https://www.att.com/blog/mbps-vs-gbps//">影响速度的因素</a></p>
+<p>所以，100Mbps 与 10MB/s 的例子，并不能单独证明机场正常，也不能单独证明它出了问题，还需要看测试条件。</p>
+<h2 id="heading-2">做机场测速，先确认请求走哪里</h2>
+<p>“节点”就是可以选择的代理连接出口。做节点测速时，还要确认测速请求是否真的经过了正在比较的节点。</p>
+<p>以 Clash Verge Rev 为例，官方说明“规则”模式会按配置决定请求走代理还是本地网络。因此，只看到软件已开启，不能直接把浏览器里的测速结果认定为机场成绩。<a href="https://www.clashverge.dev/guide/term.html">官方模式说明</a></p>
+<p>按当前客户端的连接记录或配置说明核对路径；无法确认时，先在笔记中写明“路径未确认”。别把关闭代理时的宽带结果，和开启代理后的文件下载结果，直接当成同一条件比较。</p>
+<h2 id="heading-3">用一次小对照，缩小检查范围</h2>
+<p>可以按下面顺序整理自己的记录，不必连续跑很多轮测速：</p>
+<ol>
+<li>记下设备、时间、网络、节点、测速工具和完整单位。</li>
+<li>暂停自己能控制的大文件下载、备份和更新，再检查同一个目标。</li>
+<li>保持其他条件不变，只换一个下载来源或一条节点，观察差别。</li>
+<li>有条件时比较网线与 Wi-Fi，看看变化是否集中在无线连接这一段。</li>
+</ol>
+<p>如果只是一个下载网站慢，先检查那个来源；如果多个目标都慢，再结合网络、节点和使用时间继续排查。这里是缩小范围的方法，不是仅凭一次结果就给服务定性的标准。</p>
+<h2 id="heading-4">还有两个读数别混在一起</h2>
+<p>客户端常见的 ms 表示毫秒，用来描述等待时间。它与 Mbps、MB/s 这种“每秒传多少”的指标不同，不能直接换算。Cloudflare 的官方解释也区分延迟与实际传输量：延迟看时间，传输速度看一段时间通过多少数据。<a href="https://www.cloudflare.com/learning/performance/glossary/what-is-latency/">延迟与传输速度的区别</a></p>
+<p>套餐里的 GB 通常表示可使用的数据总量，也不是每秒速度。流量额度大，不等于下载一定更快；等待时间短，也不等于大文件传输一定更快。</p>
+<p>需要向服务商反馈时，把测速结果、实际下载速度、单位和当时条件一起提供。先用同一把尺子比较，再看日常任务能否顺畅完成，判断机场使用体验会更有依据。</p>
+<p><em>单位关系依据官方资料；表格为本站计算，记录和对照顺序为原创排查建议，不包含独立机场测评结论。</em></p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/network-tools/"># 网络工具</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-10-16-chatgpt-self-quiz/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#-b--b">小写 b 和大写 B，差在哪里？</a><a class="level-2" href="#heading">一张简单换算表</a><a class="level-2" href="#heading-1">为什么换算后，下载仍然慢一些？</a><a class="level-2" href="#heading-2">做机场测速，先确认请求走哪里</a><a class="level-2" href="#heading-3">用一次小对照，缩小检查范围</a><a class="level-2" href="#heading-4">还有两个读数别混在一起</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/914bc6b3-9689-4a75-8a62-23d5f717b3b2/","pageTitle":"机场测速100Mbps，下载只有10MB/s？先看单位","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
