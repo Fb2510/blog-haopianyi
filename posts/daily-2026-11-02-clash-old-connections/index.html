@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clash换节点后网页没变化？先检查旧连接 · 小宇</title>
+<meta name="description" content="Clash换节点后网页没变化怎么办？以Clash Verge Rev为例，教你查看活跃连接和链路，按需重新连接，检查自动关闭连接设置及代理分组，减少科学上网故障排查中的误判。">
+<meta name="keywords" content="Clash,机场节点,机场教程,科学上网,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-11-02-clash-old-connections/">
+<meta property="og:title" content="Clash换节点后网页没变化？先检查旧连接">
+<meta property="og:description" content="Clash换节点后网页没变化怎么办？以Clash Verge Rev为例，教你查看活跃连接和链路，按需重新连接，检查自动关闭连接设置及代理分组，减少科学上网故障排查中的误判。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-11-02-clash-old-connections/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clash换节点后网页没变化？先检查旧连接">
+<meta name="twitter:description" content="Clash换节点后网页没变化怎么办？以Clash Verge Rev为例，教你查看活跃连接和链路，按需重新连接，检查自动关闭连接设置及代理分组，减少科学上网故障排查中的误判。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-11-02T09:01:13&#43;08:00"><meta property="article:modified_time" content="2026-11-02T09:01:15&#43;08:00"><meta property="article:tag" content="Clash"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-11-02-clash-old-connections/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-11-02T09:01:15+08:00","datePublished":"2026-11-02T09:01:13+08:00","description":"Clash换节点后网页没变化怎么办？以Clash Verge Rev为例，教你查看活跃连接和链路，按需重新连接，检查自动关闭连接设置及代理分组，减少科学上网故障排查中的误判。","headline":"Clash换节点后网页没变化？先检查旧连接","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-11-02-clash-old-connections/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-11-02-clash-old-connections/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-11-02-clash-old-connections/","name":"Clash换节点后网页没变化？先检查旧连接","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">Clash换节点后网页没变化？先检查旧连接</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">Clash换节点后网页没变化？先检查旧连接</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-11-02T09:01:13&#43;08:00">2026-11-02</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/client-guides/">客户端教程</a></div>
+</header>
+<div class="prose"><p>在 Clash 里选了另一条机场节点，网页还是卡，正在播放的视频也像没换线路。遇到这种情况，可以先看实际连接有没有重建，再判断新节点是否有问题。单看选中名称，容易把两件事混在一起。</p>
+<p>本文以电脑端 <strong>Clash Verge Rev</strong> 为例，资料核对日期为 <strong>2026 年 11 月 2 日</strong>。其他 Clash 客户端的按钮位置和处理方式可能不同。</p>
+<h2 id="heading">为什么选了新节点，旧任务还没变化？</h2>
+<p>“节点”可以理解为帮你转接网络请求的出口；“连接”则是应用已经建立的一次通信通道。改选出口与处理已有通道，需要分别确认。</p>
+<p>项目当前代码在手动切换节点时，会检查“自动关闭连接”设置；满足条件后，再查找经过原先选项的连接并关闭它们。由此可见，不能只凭选择框变了，就判断原来的连接也已经结束。<a href="https://github.com/clash-verge-rev/clash-verge-rev/blob/main/src/hooks/use-proxy-selection.ts">项目节点切换实现</a></p>
+<p>这是一条排查线索。是否发生在自己的设备上，还要看连接记录，不能直接认定机场服务出了故障。</p>
+<h2 id="heading-1">第一步：在“连接”页找实际路线</h2>
+<p>保持同一网络，打开一个需要检查的网页，再进入客户端的“连接”页。项目界面提供“主机”“链路”“规则”“连接时间”等字段，也区分“活跃”和“已关闭”。<a href="https://github.com/clash-verge-rev/clash-verge-rev/blob/main/src/locales/zh/connections.json">项目连接页说明文字</a></p>
+<p>可以先这样读：</p>
+<ul>
+<li><strong>主机</strong>：这条连接正在访问哪里。</li>
+<li><strong>链路</strong>：经过哪些代理分组和出口。</li>
+<li><strong>规则</strong>：这次请求按哪项安排处理。</li>
+<li><strong>连接时间</strong>：帮助对照它是在切换前还是之后建立。</li>
+</ul>
+<p>“分组”就是配置里的一组出口安排，名称可能叫“节点选择”“视频”或别的名字。先找目标网站对应的活跃记录，记下路线，再手动换一次节点，比较新旧记录。</p>
+<h2 id="heading-2">第二步：只让目标任务重新连接</h2>
+<p>先保存正在编辑的内容，避开上传文件、视频通话等不方便中断的时刻。找到目标网站的活跃记录后，可以使用对应的“关闭连接”操作，再重新访问网页。</p>
+<p>Mihomo，也就是负责实际转接请求的联网组件，支持分别关闭某条连接和关闭全部连接。这里先处理目标记录，方便比较，也减少对其他任务的影响。<a href="https://wiki.metacubex.one/api/#connections">官方连接接口说明</a></p>
+<p>如果一个页面涉及多条记录，就结合主机和连接时间继续核对；也可以先结束目标应用的相关任务，再重新打开。重新访问后，重点看新记录是否采用预期路线。应用是否自动重试、下载能否接着进行，取决于应用本身。</p>
+<h2 id="heading-3">第三步：查看“自动关闭连接”开关</h2>
+<p>在客户端设置中寻找“杂项设置 → 自动关闭连接”。项目当前界面说明，这个选项用于在代理组选中节点或代理模式变化时，关闭已建立的连接。<a href="https://github.com/clash-verge-rev/clash-verge-rev/blob/main/src/locales/zh/settings.json">项目设置说明</a></p>
+<p>记录原来的开关状态，再按需要尝试开启，并手动换一次节点验证。开启后，受影响的任务可能需要重新连接；如果你更希望正在进行的任务保持原状，也可以保留原设置，需要换路时再处理目标连接。</p>
+<p>本文的检查围绕手动切换展开，不据此保证自动选路、所有版本或所有应用都有同样表现。</p>
+<h2 id="heading-4">新记录仍走原路线，接下来查什么？</h2>
+<p>先确认改的是目标网站实际使用的分组。例如网站交给“视频”组，而你只改了另一组，就应继续对照链路，查看两组之间有没有关联。</p>
+<p>再确认当前模式。官方说明，规则模式根据配置决定出口，全局模式采用手工选择的出口，直连模式使用本地网络。不同模式下，应检查的选择也不同。<a href="https://www.clashverge.dev/guide/term.html">官方模式解释</a></p>
+<p>如果新连接已经走了预期节点，网页仍然慢，就把“旧连接没结束”暂时放到后面，继续比较同一网站在其他可用节点下的表现。每次只改一项，才能看出变化来自哪里。</p>
+<p>做科学上网故障排查时，留下一条简短记录就够了：“哪个网站、改了哪个分组、旧路线是什么、新连接走哪里、网页结果怎样”。这些信息比连续切换几十个节点，更方便说明问题和寻求帮助。</p>
+<p><em>本文依据项目官方资料整理，排查顺序与通俗解释为本站原创；未进行实际机场测速，不作速度或机场稳定性保证。</em></p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/clash/"># Clash</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-11-01-chatgpt-mobile-files/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">为什么选了新节点，旧任务还没变化？</a><a class="level-2" href="#heading-1">第一步：在“连接”页找实际路线</a><a class="level-2" href="#heading-2">第二步：只让目标任务重新连接</a><a class="level-2" href="#heading-3">第三步：查看“自动关闭连接”开关</a><a class="level-2" href="#heading-4">新记录仍走原路线，接下来查什么？</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/af9155be-3a6a-4db8-ab71-1bab6c4b97d5/","pageTitle":"Clash换节点后网页没变化？先检查旧连接","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
