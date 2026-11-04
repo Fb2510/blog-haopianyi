@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公共Wi-Fi开着VPN却没网？先完成网页登录 · 小宇</title>
+<meta name="description" content="公共Wi-Fi开着VPN却没网怎么办？教你寻找网络登录提示，按需临时断开并恢复VPN，留意锁定联网设置，再用相同网页和另一网络比较，逐步定位科学上网连接问题。">
+<meta name="keywords" content="VPN,公共Wi-Fi,科学上网,网络工具,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-11-04-vpn-public-wifi-login/">
+<meta property="og:title" content="公共Wi-Fi开着VPN却没网？先完成网页登录">
+<meta property="og:description" content="公共Wi-Fi开着VPN却没网怎么办？教你寻找网络登录提示，按需临时断开并恢复VPN，留意锁定联网设置，再用相同网页和另一网络比较，逐步定位科学上网连接问题。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-11-04-vpn-public-wifi-login/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="公共Wi-Fi开着VPN却没网？先完成网页登录">
+<meta name="twitter:description" content="公共Wi-Fi开着VPN却没网怎么办？教你寻找网络登录提示，按需临时断开并恢复VPN，留意锁定联网设置，再用相同网页和另一网络比较，逐步定位科学上网连接问题。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-11-04T09:03:19&#43;08:00"><meta property="article:modified_time" content="2026-11-04T09:03:22&#43;08:00"><meta property="article:tag" content="VPN"><meta property="article:tag" content="网络工具"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-11-04-vpn-public-wifi-login/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-11-04T09:03:22+08:00","datePublished":"2026-11-04T09:03:19+08:00","description":"公共Wi-Fi开着VPN却没网怎么办？教你寻找网络登录提示，按需临时断开并恢复VPN，留意锁定联网设置，再用相同网页和另一网络比较，逐步定位科学上网连接问题。","headline":"公共Wi-Fi开着VPN却没网？先完成网页登录","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-11-04-vpn-public-wifi-login/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-11-04-vpn-public-wifi-login/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-11-04-vpn-public-wifi-login/","name":"公共Wi-Fi开着VPN却没网？先完成网页登录","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">公共Wi-Fi开着VPN却没网？先完成网页登录</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">公共Wi-Fi开着VPN却没网？先完成网页登录</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-11-04T09:03:19&#43;08:00">2026-11-04</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/vpn-tools/">VPN与网络工具</a></div>
+</header>
+<div class="prose"><p>到酒店或咖啡店，手机显示已经连上 Wi-Fi，VPN 却一直转圈，网页也打不开。先看看这个网络是否要求完成一次网页登录：如果还没通过这一步，反复更换服务器，可能一直在排查错误的环节。</p>
+<p>本文整理“公共 Wi-Fi 需要网页登录时，怎样检查 VPN 与基础联网”的方法。<strong>资料核对日期：2026 年 11 月 4 日</strong>。浏览器和手机入口以实际界面为准，本文未对具体场所的网络进行测试。</p>
+<h2 id="heading">连上无线网络，为什么还不能上网？</h2>
+<p>有些公共网络会先显示欢迎页，要求登录、输入接入码或同意使用条款。这个页面常被称为“认证页面”，也就是联网前需要完成的一道手续。Mozilla 官方说明，VPN 或代理可能影响 Firefox 打开该页面，因为网络需要先允许设备联网，才能建立后续连接。<a href="https://support.mozilla.org/en-US/kb/captive-portal">官方认证页面说明</a></p>
+<p>可以分两步判断：先确认场所提供的网络是否已经允许设备访问互联网，再检查 VPN 能否连接。两步都要完成，不能只看 Wi-Fi 图标。</p>
+<h2 id="heading-1">第一步：找系统的“登录网络”提示</h2>
+<p>先向场所确认 Wi-Fi 名称和接入方式，记下当前 VPN 状态，再查看手机通知或无线网络页面，有没有“登录网络”“需要操作”一类提示。</p>
+<p>Google 的 Pixel 官方帮助建议：连接公共网络后找不到认证页面时，先查看登录通知，或在新窗口中打开网页。<a href="https://support.google.com/pixelphone/answer/6183600?hl=en">Pixel 公共网络登录步骤</a></p>
+<p>提示中的页面是否属于当前场所，也要核对清楚。房间号、接入码等要求以场所说明为准；不确定时，先请工作人员确认入口。</p>
+<h2 id="-vpn">第二步：页面仍打不开，再检查 VPN</h2>
+<p>先记下原来的连接和开关状态。若这是你自行管理的设备，且准备暂时使用原网络完成登录，可以按所用工具的说明，临时断开 VPN 或暂停代理，再重新连接 Wi-Fi、打开登录页面。Mozilla 的官方排查流程包含这一步，并建议联网后重新开启 VPN 或代理。<a href="https://support.mozilla.org/en-US/kb/captive-portal#vpn-or-proxy">官方 VPN 与代理排查步骤</a></p>
+<p>暂时断开期间，相关请求可能直接经过当前网络。完成这次网络登录后，就回到工具里恢复需要的连接，再继续原来的任务。</p>
+<p>如果设备由单位统一管理，应查看单位提供的公共网络接入办法，或请管理员协助，避免自行改动不熟悉的设置。</p>
+<h2 id="heading-2">只点“断开”，有时还不够</h2>
+<p>某些工具有“没有 VPN 就停止联网”的选项。例如 Mullvad 桌面端的 <strong>Lockdown mode</strong>，可以理解成断开后仍锁住网络；官方说明，它在点击断开或退出后也会继续拦网。<a href="https://mullvad.net/en/help/using-mullvad-vpn-app#lockdown-mode">Mullvad 官方锁定模式说明</a></p>
+<p>若看到“正在阻止网络”之类提示，先查看对应功能的说明。确实准备临时直连时，再按工具文档调整该选项，记住原值，登录后恢复。不同工具的行为并不相同，不能把关闭软件窗口当成已经解除拦网。</p>
+<h2 id="heading-3">第三步：用相同网页做前后比较</h2>
+<p>可以按下面的次序记录结果，每次只改变一个条件：</p>
+<table>
+<thead>
+<tr>
+<th>当前结果</th>
+<th>接下来查什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>登录页面始终打不开</td>
+<td>确认网络名称、接入办法，向场所工作人员询问</td>
+</tr>
+<tr>
+<td>完成登录后，普通网页仍打不开</td>
+<td>继续检查基础网络，不急着判断 VPN 故障</td>
+</tr>
+<tr>
+<td>普通网页能打开，重新连接 VPN 后失败</td>
+<td>查看工具提示，并换到另一网络作比较</td>
+</tr>
+<tr>
+<td>VPN 已连接，只有某个网站失败</td>
+<td>记录具体网站和错误，缩小排查范围</td>
+</tr>
+</tbody>
+</table>
+<p>Google 官方也建议，通过另一台设备或另一处网络比较，区分设备问题与网络问题。<a href="https://support.google.com/pixelphone/answer/6183600?hl=en">官方联网问题定位方法</a></p>
+<p>比较时尽量使用同一个完整网址。若改用自己的手机热点，要记下这是另一条网络的结果；热点能用，只能提供排查线索，不能单独证明原网络限制了所有 VPN。</p>
+<h2 id="heading-4">没有登录提示，可以怎样重试？</h2>
+<p>以 Pixel 为例，官方提供了忘记当前网络、关闭再开启 Wi-Fi、重新选择网络并查看登录通知的步骤。操作前确认自己知道接入密码和登录办法，再考虑这项重试；其他手机按厂商说明处理。<a href="https://support.google.com/pixelphone/answer/6183600?hl=en">官方重新连接步骤</a></p>
+<p>求助时，把“网络名称、是否出现登录页、登录后普通网页能否打开、VPN 错误文字”整理出来。日常使用科学上网工具时，先确认基础联网这一层，通常能少做许多没有方向的节点切换。</p>
+<p><em>功能与操作依据文内官方资料；排查表和记录方法为本站原创整理，不包含机场测速、实际场所测试或稳定性保证。</em></p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/vpn/"># VPN</a><a href="https://haopianyi.blog/tags/network-tools/"># 网络工具</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-11-03-chatgpt-meeting-decisions/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">连上无线网络，为什么还不能上网？</a><a class="level-2" href="#heading-1">第一步：找系统的“登录网络”提示</a><a class="level-2" href="#-vpn">第二步：页面仍打不开，再检查 VPN</a><a class="level-2" href="#heading-2">只点“断开”，有时还不够</a><a class="level-2" href="#heading-3">第三步：用相同网页做前后比较</a><a class="level-2" href="#heading-4">没有登录提示，可以怎样重试？</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/0542d8ff-5430-4dc8-b7c5-ee1a26e79208/","pageTitle":"公共Wi-Fi开着VPN却没网？先完成网页登录","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
