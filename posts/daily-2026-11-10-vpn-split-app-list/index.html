@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VPN分流怎么设置？先分清“排除”和“仅包含” · 小宇</title>
+<meta name="description" content="VPN 分流怎么设置才不会选反？本文用通俗语言解释排除与仅包含，以 Windows 版 Proton VPN、Mullvad 官方步骤为例，介绍软件名单、应用设置和连接检查方法。资料核对于2026年11月10日。">
+<meta name="keywords" content="VPN分流,科学上网,VPN设置,网络工具,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-11-10-vpn-split-app-list/">
+<meta property="og:title" content="VPN分流怎么设置？先分清“排除”和“仅包含”">
+<meta property="og:description" content="VPN 分流怎么设置才不会选反？本文用通俗语言解释排除与仅包含，以 Windows 版 Proton VPN、Mullvad 官方步骤为例，介绍软件名单、应用设置和连接检查方法。资料核对于2026年11月10日。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-11-10-vpn-split-app-list/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VPN分流怎么设置？先分清“排除”和“仅包含”">
+<meta name="twitter:description" content="VPN 分流怎么设置才不会选反？本文用通俗语言解释排除与仅包含，以 Windows 版 Proton VPN、Mullvad 官方步骤为例，介绍软件名单、应用设置和连接检查方法。资料核对于2026年11月10日。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-11-10T09:02:58&#43;08:00"><meta property="article:modified_time" content="2026-11-10T09:03:00&#43;08:00"><meta property="article:tag" content="VPN"><meta property="article:tag" content="网络工具"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-11-10-vpn-split-app-list/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-11-10T09:03:00+08:00","datePublished":"2026-11-10T09:02:58+08:00","description":"VPN 分流怎么设置才不会选反？本文用通俗语言解释排除与仅包含，以 Windows 版 Proton VPN、Mullvad 官方步骤为例，介绍软件名单、应用设置和连接检查方法。资料核对于2026年11月10日。","headline":"VPN分流怎么设置？先分清“排除”和“仅包含”","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-11-10-vpn-split-app-list/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-11-10-vpn-split-app-list/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-11-10-vpn-split-app-list/","name":"VPN分流怎么设置？先分清“排除”和“仅包含”","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">VPN分流怎么设置？先分清“排除”和“仅包含”</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">VPN分流怎么设置？先分清“排除”和“仅包含”</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-11-10T09:02:58&#43;08:00">2026-11-10</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/vpn-tools/">VPN与网络工具</a></div>
+</header>
+<div class="prose"><p>打开 VPN 后，想让查资料的浏览器经过 VPN，另一个软件继续用原来的网络，该怎么设置？可以先看看客户端有没有“分流”，再弄清名单里的软件到底走哪条路。为了科学上网反复开关整套连接之前，先把这个选择看明白。</p>
+<p>本文以 <strong>Windows 版 Proton VPN 和 Mullvad 的官方说明</strong>为例，资料核对日期为 <strong>2026 年 11 月 10 日</strong>。不同产品和设备的功能、名称可能不同，请按自己使用的客户端核对。</p>
+<h2 id="heading">分流是什么？先分清两种名单</h2>
+<p>分流可以理解为给联网的软件分配路线：一部分经过 VPN，另一部分使用原来的网络。Proton 当前将这项功能列为付费套餐功能；Windows 版提供两种方向。<a href="https://protonvpn.com/support/protonvpn-split-tunneling">Proton 官方分流说明</a></p>
+<table>
+<thead>
+<tr>
+<th>名单方向</th>
+<th>加进名单的软件</th>
+<th>其余软件的安排</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>排除，Exclude</td>
+<td>不经过 VPN</td>
+<td>经过 VPN</td>
+</tr>
+<tr>
+<td>仅包含，Include</td>
+<td>经过 VPN</td>
+<td>不经过 VPN</td>
+</tr>
+</tbody>
+</table>
+<p>表格描述的是 VPN 已连接时，这项设置安排的路线。读名单前，先读模式名称：同样把浏览器加进去，选错方向，结果就会相反。</p>
+<h2 id="heading-1">先写需求，再决定选哪一种</h2>
+<p>假设你希望浏览器甲走 VPN，播放器乙使用普通网络。这只是说明方法的例子，不是实际测试结果。</p>
+<p>可以先写三行：哪些软件需要 VPN，哪些允许直接连接，还有哪些暂时没想清楚。暂时没想清楚的，先别随手加入名单。</p>
+<p>如果大多数软件都需要 VPN，只有少数例外，可以考虑“排除”；如果只打算让少数软件经过 VPN，就检查客户端是否支持“仅包含”。不要因为教程里用了某一种，就照着勾相同的位置。</p>
+<p>本文按“软件名单”讲解。想只调整某个网站时，应另查客户端对应功能，不能把一个软件的名字当成某个网页的地址。</p>
+<h2 id="proton-windows">Proton Windows：改完还要应用设置</h2>
+<p>在 Proton 首页或设置里进入 Split tunneling，打开开关，选好 Exclude 或 Include，再进入对应的软件名单。从列表挑选软件；列表没有时，可用 Add 找到它的 EXE 文件，也就是 Windows 程序文件。</p>
+<p>完成后，未连接时点 Apply，已连接时点 Reconnect，分别表示应用设置和重新连接。<a href="https://protonvpn.com/support/protonvpn-split-tunneling">Proton 官方 Windows 操作步骤</a></p>
+<p>新手第一次只添加一个准备验证的软件。测试目标越少，发现方向选反或文件选错时，越容易改回来。</p>
+<h2 id="mullvad-windows">Mullvad Windows：加号表示排除</h2>
+<p>Mullvad 官方 Windows 教程中的路径是“设置 → Split tunneling”，点击软件旁的加号，把它加入排除名单；缺少的软件可用 Find another app 查找。这里的“添加”表示让它离开 VPN 通道。</p>
+<p>官方也明确提醒：被排除的软件使用普通网络，会露出原来的 IP 地址。IP 可以先理解为网站看到的网络出口地址。<a href="https://mullvad.net/en/help/split-tunneling-with-the-mullvad-app">Mullvad 官方分流教程</a></p>
+<p>因此，需要保留 VPN 路线的软件，就不要按这套教程把它排除。</p>
+<h2 id="heading-2">怎么检查？看具体软件的结果</h2>
+<p>先检查 VPN 本身是否正常连接，再用准备验证的软件完成同一个小任务。建议记下软件名称、名单方向、预期路线和观察结果，别只写“能用”或“不能用”。</p>
+<p>Mullvad 官方建议，把一个浏览器排除后，在该浏览器访问<a href="https://mullvad.net/en/check">官方连接检查页</a>，应显示“Not using Mullvad VPN”，意思是没有使用 Mullvad VPN。<a href="https://mullvad.net/en/help/split-tunneling-with-the-mullvad-app">官方验证方法</a></p>
+<p>这个提示适合核对 Mullvad 的例子；使用其他 VPN 时，不能据此判断“所有 VPN 都没生效”。网页检查也不能代替逐个核对整台电脑上的软件。</p>
+<h2 id="heading-3">效果不对，先回看名单</h2>
+<p>先比较预期和设置：是把需要 VPN 的软件放进了排除名单，还是选了仅包含，却忘了添加它？再确认修改已经按客户端要求生效。</p>
+<p>如果设置前能正常使用，设置后出现问题，可以记下当前名单，关闭分流并按客户端提示应用，再做同样的比较。一次只改变一项，暂时别同时换服务器、改协议和重装软件。</p>
+<p>如果路线符合预期，但某个网站仍打不开，就把“分流是否生效”和“目标网站能否使用”分开记录。需要求助时，提供客户端版本、模式、软件名称和错误文字，比一句“VPN 坏了”更方便缩小范围。</p>
+<p><em>功能与操作依据厂商官方资料；需求清单和检查顺序为本站原创整理，未进行独立设备测试，也不保证开启分流后速度会提高。</em></p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/vpn/"># VPN</a><a href="https://haopianyi.blog/tags/network-tools/"># 网络工具</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-11-09-chatgpt-chart-label-check/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">分流是什么？先分清两种名单</a><a class="level-2" href="#heading-1">先写需求，再决定选哪一种</a><a class="level-2" href="#proton-windows">Proton Windows：改完还要应用设置</a><a class="level-2" href="#mullvad-windows">Mullvad Windows：加号表示排除</a><a class="level-2" href="#heading-2">怎么检查？看具体软件的结果</a><a class="level-2" href="#heading-3">效果不对，先回看名单</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/7abe9022-761b-4241-b088-ba1d3341edca/","pageTitle":"VPN分流怎么设置？先分清“排除”和“仅包含”","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
