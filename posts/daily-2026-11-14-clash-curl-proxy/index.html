@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windows 上 curl 怎么走 Clash？先核对混合代理端口 · 小宇</title>
+<meta name="description" content="Windows 上如何让 curl 使用 Clash 代理？查看 Clash Verge Rev 混合代理端口，用 curl.exe 指定本机 HTTP 代理，再检查端口和规则命中情况。">
+<meta name="keywords" content="Clash,curl代理,Clash Verge Rev,混合代理端口,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-11-14-clash-curl-proxy/">
+<meta property="og:title" content="Windows 上 curl 怎么走 Clash？先核对混合代理端口">
+<meta property="og:description" content="Windows 上如何让 curl 使用 Clash 代理？查看 Clash Verge Rev 混合代理端口，用 curl.exe 指定本机 HTTP 代理，再检查端口和规则命中情况。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-11-14-clash-curl-proxy/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows 上 curl 怎么走 Clash？先核对混合代理端口">
+<meta name="twitter:description" content="Windows 上如何让 curl 使用 Clash 代理？查看 Clash Verge Rev 混合代理端口，用 curl.exe 指定本机 HTTP 代理，再检查端口和规则命中情况。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-11-14T09:00:23&#43;08:00"><meta property="article:modified_time" content="2026-11-14T09:00:40&#43;08:00"><meta property="article:tag" content="网络工具"><meta property="article:tag" content="Clash"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-11-14-clash-curl-proxy/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-11-14T09:00:40+08:00","datePublished":"2026-11-14T09:00:23+08:00","description":"Windows 上如何让 curl 使用 Clash 代理？查看 Clash Verge Rev 混合代理端口，用 curl.exe 指定本机 HTTP 代理，再检查端口和规则命中情况。","headline":"Windows 上 curl 怎么走 Clash？先核对混合代理端口","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-11-14-clash-curl-proxy/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-11-14-clash-curl-proxy/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-11-14-clash-curl-proxy/","name":"Windows 上 curl 怎么走 Clash？先核对混合代理端口","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">Windows 上 curl 怎么走 Clash？先核对混合代理端口</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">Windows 上 curl 怎么走 Clash？先核对混合代理端口</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-11-14T09:00:23&#43;08:00">2026-11-14</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/client-guides/">客户端教程</a></div>
+</header>
+<div class="prose"><p>浏览器能打开网页，PowerShell 里的 curl 请求却一直超时。用 Windows 版 Clash Verge Rev 时，可以先让这一条命令明确连接 Clash 的本机代理端口，再检查请求有没有送到。这也适合排查下载脚本，尤其是你暂时只想测试一条请求的时候。</p>
+<p>curl 是一个在命令行里请求网页或下载文件的工具。本文在 PowerShell 中写成 <code>curl.exe</code>，直接调用 curl 程序。以下以无需登录的公开示例网站为目标，演示如何设置和读结果。资料核对日期为 <strong>2026 年 11 月 14 日</strong>。</p>
+<h2 id="-clash-">先找 Clash 实际在用的端口</h2>
+<p>打开 Clash Verge Rev，在首页的「Clash 信息」或设置里的端口配置中找「混合代理端口」。端口可以理解为同一台电脑上某个程序接收请求的入口号码。混合端口能接收 HTTP 代理和 SOCKS5 代理两种方式的请求，下面用 HTTP 代理。照着软件当时显示的号码填，示例中的 <code>7897</code> 只是演示，换过配置后也值得再看一眼。<a href="https://github.com/clash-verge-rev/clash-verge-rev/blob/dev/src/locales/zh/home.json">Clash Verge Rev 界面标签</a> · <a href="https://wiki.metacubex.one/config/inbound/port/">Mihomo 代理端口说明</a></p>
+<p>地址里的 <code>127.0.0.1</code> 指当前运行命令的这台电脑。如果命令是在另一台电脑或远程终端运行，先回到运行 Clash 的 Windows 电脑上做这个例子。</p>
+<h2 id="heading">给一条命令指定代理</h2>
+<p>确认 Clash 正在运行，然后在 PowerShell 中执行下面这行。把 <code>7897</code> 换成你看到的混合代理端口。</p>
+<pre><code class="language-powershell">curl.exe -q --proxy &quot;http://127.0.0.1:7897&quot; --max-time 15 --verbose --output NUL &quot;https://example.com/&quot;
+</code></pre>
+<p><code>--proxy</code> 指定 curl 先连哪一个代理。这里前面的 <code>http://</code> 对应本机 HTTP 代理，末尾的 <code>https://example.com/</code> 是要访问的网站。<code>-q</code> 放在最前面，让 curl 跳过自己的默认配置文件，<code>--max-time 15</code> 限制这次等待的时间，<code>--verbose</code> 显示连接细节，<code>--output NUL</code> 把网页正文丢弃，方便看连接输出。这次传入的参数随命令执行，用于单次请求。排查时可以先用公开网页，详细输出可能包含请求头。<a href="https://curl.se/docs/manpage.html">curl 命令手册</a></p>
+<h2 id="heading-1">从输出里看请求走到哪一步</h2>
+<p>先看有没有连上 <code>127.0.0.1</code> 和你填的端口。假如报连接被拒绝，可以检查 Clash 是否仍在运行、混合端口的号码是否填对。也可以单独用 Windows 的端口检查命令。把号码同样替换成你自己的。</p>
+<pre><code class="language-powershell">Test-NetConnection -ComputerName 127.0.0.1 -Port 7897
+</code></pre>
+<p>看到 <code>TcpTestSucceeded</code> 为 <code>True</code>，说明这次可以连到该端口。接下来仍需要用 curl 验证代理能否处理请求。如果详细输出直接显示它在尝试连接网站地址，再检查命令里有没有写 <code>--proxy</code>，以及 <code>NO_PROXY</code> 是否包含测试网站。<code>NO_PROXY</code> 是一份告诉 curl 哪些站点要绕过代理的设置。<a href="https://learn.microsoft.com/powershell/module/nettcpip/test-netconnection">Microsoft 端口测试说明</a> · <a href="https://curl.se/docs/manpage.html#--noproxy">curl 的代理绕过选项</a></p>
+<h2 id="-clash">已交给 Clash，再查最终走的路线</h2>
+<p>连上混合端口以后，可以在 Clash 的连接或日志里按时间找这次访问的域名。启用规则模式时，规则会决定这个网站走某个节点还是直连。假如请求在本机端口就失败，先解决端口问题。假如代理已接到请求，浏览仍失败，再看被选中的路线和目标网站的响应。比较两次时，用同一个网址，每次只改一个配置。<a href="https://www.clashverge.dev/guide/term.html">Clash Verge Rev 的模式说明</a></p>
+<p>访问 HTTPS 网页时，详细输出里可能先出现一条 <code>CONNECT</code>，它是 curl 请代理建立通往网站的连接。如果紧接着看到 <code>200 Connection established</code>，表示代理接受了这项请求。继续往下看，网站自己的 HTTP 状态码会在后面出现。比如随后收到 <code>404</code>，可以先核对网页路径。如果在网站返回状态前就停在证书错误，则保留完整的错误文字，先核对系统时间和访问的域名。<a href="https://curl.se/docs/manpage.html#--proxytunnel">curl 的代理连接说明</a></p>
+<p>举个例子，若这条命令已经收到示例网站的正常响应，换成原来下载出错的网址后才失败，可以记下两个网址、测试时间、Clash 选的路线和最后出现的错误。下次遇到同样的问题，从这几项开始对比，容易看出变化出在本机设置还是某个目标网站。</p>
+<p>如果两次都是用同一个代理端口，可以先固定端口，只在 Clash 里换一个节点，再访问原网址。每轮记下最后一条状态码或错误，判断依据会比单看浏览器能否打开更清楚。需要在另一台电脑重做测试时，先从那台电脑上的 Clash 界面重新核对端口。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/network-tools/"># 网络工具</a><a href="https://haopianyi.blog/tags/clash/"># Clash</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-11-13-chatgpt-compare-required-criteria/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#-clash-">先找 Clash 实际在用的端口</a><a class="level-2" href="#heading">给一条命令指定代理</a><a class="level-2" href="#heading-1">从输出里看请求走到哪一步</a><a class="level-2" href="#-clash">已交给 Clash，再查最终走的路线</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/077c8cfd-83bf-4dac-812f-255120c20647/","pageTitle":"Windows 上 curl 怎么走 Clash？先核对混合代理端口","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
