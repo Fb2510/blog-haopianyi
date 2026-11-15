@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网页只想读一段？用 ChatGPT 浏览器侧栏解释选中文字 · 小宇</title>
+<meta name="description" content="ChatGPT 浏览器侧栏怎么用？以 Chrome 为例，说明如何安装扩展、引用网页选区、提问并核对回答，以及内置浏览器和日常浏览器的区别。">
+<meta name="keywords" content="ChatGPT,ChatGPT浏览器扩展,网页侧栏,选中文字,ChatGPT使用技巧">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-11-15-chatgpt-browser-selected-text/">
+<meta property="og:title" content="网页只想读一段？用 ChatGPT 浏览器侧栏解释选中文字">
+<meta property="og:description" content="ChatGPT 浏览器侧栏怎么用？以 Chrome 为例，说明如何安装扩展、引用网页选区、提问并核对回答，以及内置浏览器和日常浏览器的区别。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-11-15-chatgpt-browser-selected-text/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网页只想读一段？用 ChatGPT 浏览器侧栏解释选中文字">
+<meta name="twitter:description" content="ChatGPT 浏览器侧栏怎么用？以 Chrome 为例，说明如何安装扩展、引用网页选区、提问并核对回答，以及内置浏览器和日常浏览器的区别。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-11-15T09:06:50&#43;08:00"><meta property="article:modified_time" content="2026-11-15T09:07:15&#43;08:00"><meta property="article:tag" content="AI工具"><meta property="article:tag" content="ChatGPT">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-11-15-chatgpt-browser-selected-text/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-11-15T09:07:15+08:00","datePublished":"2026-11-15T09:06:50+08:00","description":"ChatGPT 浏览器侧栏怎么用？以 Chrome 为例，说明如何安装扩展、引用网页选区、提问并核对回答，以及内置浏览器和日常浏览器的区别。","headline":"网页只想读一段？用 ChatGPT 浏览器侧栏解释选中文字","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-11-15-chatgpt-browser-selected-text/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-11-15-chatgpt-browser-selected-text/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-11-15-chatgpt-browser-selected-text/","name":"网页只想读一段？用 ChatGPT 浏览器侧栏解释选中文字","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">网页只想读一段？用 ChatGPT 浏览器侧栏解释选中文字</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">网页只想读一段？用 ChatGPT 浏览器侧栏解释选中文字</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-11-15T09:06:50&#43;08:00">2026-11-15</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/ai-chatgpt/">AI与ChatGPT</a></div>
+</header>
+<div class="prose"><p>遇到一篇很长的活动公告，你可能只想弄懂「报名和取消」这一段。已经在浏览器里打开网页时，可以用 ChatGPT 浏览器扩展把选中的文字带到侧边聊天，再问这一段有什么要求、哪些细节还得回页面找。</p>
+<p>浏览器扩展是给浏览器加功能的小工具。侧边聊天是放在网页旁边的聊天面板，可以一边看原文一边对照回答。以下以桌面端配合 Chrome 为例，资料核对日期为 <strong>2026 年 11 月 15 日</strong>。<a href="https://learn.chatgpt.com/docs/chrome-extension">OpenAI Docs 浏览器扩展指南</a></p>
+<h2 id="heading">在实际看网页的浏览器里打开侧栏</h2>
+<p>首次设置时，打开 ChatGPT 桌面端的「设置 → 电脑使用」（Computer Use），找到 Chrome，按提示安装所需插件和浏览器扩展，再回到设置，确认浏览器旁显示「管理」（Manage）。浏览器入口是否可见取决于功能开放进度和工作区设置。如果你有个人和工作两套浏览器资料，先确认扩展装在当前使用的那一套里。<a href="https://learn.chatgpt.com/docs/chrome-extension">OpenAI Docs 扩展安装步骤</a></p>
+<p>用这个浏览器打开目标网页，点工具栏里的 ChatGPT 图标。图标收起来时，到扩展菜单里找。官方文档同时列出了 Edge、Brave 和 Vivaldi 的侧边聊天支持。Opera 用户可以从桌面端引用打开的标签页。<a href="https://learn.chatgpt.com/docs/chrome-extension">OpenAI Docs 支持的浏览器与侧栏入口</a></p>
+<h2 id="heading-1">选中一段时，把小标题和例外一起带上</h2>
+<p>用鼠标选中要问的文字，按侧栏提供的方式将选区带入聊天。如果正文写着「提前一天取消」，但下一句紧接着是「已领取材料的名额须联系工作人员」，两句可以一起选。带上小标题也有帮助，尤其是在同一页同时介绍线上和线下活动时。<a href="https://learn.chatgpt.com/docs/chrome-extension">OpenAI Docs 关于引用标签页和选区的说明</a></p>
+<p>下面是一段虚构的练习文本。假设页面小标题是「线下体验课」，正文写着「报名成功后，请提前十五分钟签到。临时不能到场，请在前一天取消。已领取材料的学员，请先联系工作人员。」可以连同选区发出这样的请求。</p>
+<blockquote>
+<p>请用两三句话解释我选中的「线下体验课」规则。按到场和取消分别列出该做的事，并指出已领取材料时多了哪一步。若这段没有写取消入口或具体截止时刻，把这两项列为待确认。</p>
+</blockquote>
+<h2 id="heading-2">核对回答里新增的细节</h2>
+<p>示例中，「前一天取消」说明了日期关系。假如回答写成「前一天晚上十二点前在 App 中取消」，就回到原文找这两个细节。还没看到的话，可以补一句「把具体时刻和入口标为待确认，并指出我该继续找哪一类说明」。下次看到「报名须知见下文」或「以场馆通知为准」，也可以把被引用的段落追加进来再问。<a href="https://learn.chatgpt.com/docs/prompting">OpenAI Docs 关于限定资料和标记缺失信息的提示指南</a></p>
+<p>想了解整页时，可以从侧栏引用对应的标签页，并明确请它读哪些章节。只关心一条条款时，带上那一段和必要的上下文就够了。若侧栏入口暂时不可用，把你可以分享的段落连同标题贴到普通聊天里，也能使用上面的提问方式。</p>
+<h2 id="heading-3">页面在普通浏览器开着，先确认用的是哪个浏览器</h2>
+<p>ChatGPT 桌面端的内置浏览器有独立的浏览记录和登录状态。想让 ChatGPT 使用你在日常 Chrome 中已经打开的活动页面，可以回到那个标签页打开扩展的侧栏，核对标题和选区后再发送。要在内置浏览器里查看同一个需要登录的页面，则要在内置浏览器中完成登录。<a href="https://learn.chatgpt.com/docs/browser">OpenAI Docs 内置浏览器说明</a></p>
+<p>读完后把回答和原段落并排看一遍。对于这个例子，只要确认签到时间、取消要求和领取材料后的处理方式三处都对得上，就能据此整理自己的待办。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/ai-tools/"># AI工具</a><a href="https://haopianyi.blog/tags/chatgpt/"># ChatGPT</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-11-14-clash-curl-proxy/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">在实际看网页的浏览器里打开侧栏</a><a class="level-2" href="#heading-1">选中一段时，把小标题和例外一起带上</a><a class="level-2" href="#heading-2">核对回答里新增的细节</a><a class="level-2" href="#heading-3">页面在普通浏览器开着，先确认用的是哪个浏览器</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/21158afc-3507-46b5-a524-66a05267c4e2/","pageTitle":"网页只想读一段？用 ChatGPT 浏览器侧栏解释选中文字","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
