@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatGPT 想换个方案又怕弄乱原稿？从中途创建对话分支 · 小宇</title>
+<meta name="description" content="ChatGPT 对话分支怎么用？介绍网页版 Branch in new chat 的官方入口，说明如何选择保留上下文的起点、命名原稿和分支，并用同一组条件比较两版方案。">
+<meta name="keywords" content="ChatGPT对话分支,ChatGPT使用技巧,AI工具,ChatGPT教程">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-11-19-chatgpt-branch-alternative/">
+<meta property="og:title" content="ChatGPT 想换个方案又怕弄乱原稿？从中途创建对话分支">
+<meta property="og:description" content="ChatGPT 对话分支怎么用？介绍网页版 Branch in new chat 的官方入口，说明如何选择保留上下文的起点、命名原稿和分支，并用同一组条件比较两版方案。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-11-19-chatgpt-branch-alternative/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ChatGPT 想换个方案又怕弄乱原稿？从中途创建对话分支">
+<meta name="twitter:description" content="ChatGPT 对话分支怎么用？介绍网页版 Branch in new chat 的官方入口，说明如何选择保留上下文的起点、命名原稿和分支，并用同一组条件比较两版方案。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-11-19T09:04:43&#43;08:00"><meta property="article:modified_time" content="2026-11-19T09:05:37&#43;08:00"><meta property="article:tag" content="AI工具"><meta property="article:tag" content="ChatGPT">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-11-19-chatgpt-branch-alternative/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-11-19T09:05:37+08:00","datePublished":"2026-11-19T09:04:43+08:00","description":"ChatGPT 对话分支怎么用？介绍网页版 Branch in new chat 的官方入口，说明如何选择保留上下文的起点、命名原稿和分支，并用同一组条件比较两版方案。","headline":"ChatGPT 想换个方案又怕弄乱原稿？从中途创建对话分支","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-11-19-chatgpt-branch-alternative/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-11-19-chatgpt-branch-alternative/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-11-19-chatgpt-branch-alternative/","name":"ChatGPT 想换个方案又怕弄乱原稿？从中途创建对话分支","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">ChatGPT 想换个方案又怕弄乱原稿？从中途创建对话分支</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">ChatGPT 想换个方案又怕弄乱原稿？从中途创建对话分支</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-11-19T09:04:43&#43;08:00">2026-11-19</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/ai-chatgpt/">AI与ChatGPT</a></div>
+</header>
+<div class="prose"><p>已经和 ChatGPT 整理好一份活动方案，又想试试另一种安排，继续往下改，回头却要翻很久才能找到原稿。遇到这种情况，可以从合适的位置创建“对话分支”：沿用此前的聊天内容，在另一条聊天里尝试新方向。</p>
+<p>本文介绍 <strong>ChatGPT 网页版</strong>的操作思路，资料核对日期为 <strong>2026 年 11 月 19 日</strong>。对话分支已在 OpenAI 的 2025 年 9 月 4 日更新记录中介绍，入口名称是 <strong>Branch in new chat</strong>，可以理解为“从这里另开一条聊天”。<a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">OpenAI 官方更新记录</a></p>
+<h2 id="heading">先选起点，再开分支</h2>
+<p>官方步骤是：把鼠标移到一条消息上，打开“更多操作”的三个点，选择 <strong>Branch in new chat</strong>，从这个位置开始另一段对话。<a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">官方网页版操作说明</a></p>
+<p>起点要选在你仍然认可的内容附近。OpenAI 支持团队在 2026 年 11 月 13 日的回复中说明，新聊天保留到所选位置为止的上下文，不带入后面的内容。上下文就是此前交代的要求与交流内容。<a href="https://community.openai.com/t/editing-a-prompt-causes-the-edited-prompt-to-appear-under-the-previously-generated-response/1415682/2">OpenAI 支持团队说明</a></p>
+<p>因此，如果原方案已经加入许多只适合它的细节，而你准备尝试完全不同的安排，可以往前找共同要求。不要只因为最后一条消息离输入框最近，就顺手从那里开始。</p>
+<h2 id="heading-1">用一场读书会，练习怎么选择起点</h2>
+<p>假设你在筹备读书会，条件是十二个人、九十分钟、使用现有教室。原聊天已经生成了以小组讨论为主的方案，你想另外看看安静共读的安排。这是演示用的虚构场景。</p>
+<p>先回到说明人数、时长和场地的那一段，找一个已经包含共同条件、尚未展开小组分工的位置，再创建分支。进入新聊天后，可以发：</p>
+<blockquote>
+<p>沿用前面确认的十二人、九十分钟和现有教室。这一条聊天尝试安静共读的安排，减少轮流发言。请列出每个环节的分钟数，以及主持人要准备什么。信息不足时先提问。</p>
+</blockquote>
+<p>这段话把保留项、变化项和交付内容分别写清楚。它也给你留下了检查依据：新答案如果又分成三组辩论，就能指出具体哪一项没有按要求改变。</p>
+<h2 id="heading-2">两条聊天，起容易分辨的名字</h2>
+<p>OpenAI 支持团队说明，可以从左侧栏切换原聊天与分支，新聊天的标题中可寻找“Branch”，也可以重新命名。<a href="https://community.openai.com/t/editing-a-prompt-causes-the-edited-prompt-to-appear-under-the-previously-generated-response/1415682/2">官方切换与命名说明</a></p>
+<p>建议按用途命名，例如“读书会—讨论版”和“读书会—共读版”。只写“新方案”“最新版”，隔几天就很难分清。</p>
+<p>每条聊天开头再留一句本轮目标。如果后来把时长改成六十分钟，就在准备继续使用的那条聊天里明确补充，并核对新安排的总时长。分支起点选得早，后来补充的条件尤其值得再检查一遍。</p>
+<h2 id="heading-3">比较结果时，给两版用同一把尺子</h2>
+<p>先分别检查两版方案有没有满足人数、时长和场地条件，再比较你真正关心的差别。可以把两份结果复制到一处，标为 A、B，并这样问：</p>
+<blockquote>
+<p>A 是讨论版，B 是共读版。请只依据这两份文字，比较主持准备量、现场发言安排和每个环节的时间。原文没有写清的地方标为待确认。最后列出我要补问的三个问题。</p>
+</blockquote>
+<p>不要只根据哪版写得更长就决定采用哪版。若 A 写明了准备事项，B 没写，不妨先让 B 补齐，再做比较。</p>
+<p>采用某一版后，把确定下来的安排另存一份，写清日期和版本名称。之后需要继续修改，就从这份已确认的内容出发，减少在多条聊天之间来回猜测。</p>
+<h2 id="heading-4">没找到入口，可以先做一个小范围尝试</h2>
+<p>先确认自己查看的是网页版聊天中某条消息的更多菜单。本文的入口依据网页版说明，不把其他应用里的按钮位置套过来。</p>
+<p>暂时没有对应选项时，也可以新开聊天，手动贴入共同条件和准备保留的文字，再交代另一种方向。贴完后先核对材料是否完整，尤其是人数、时间和已经确定的限制。</p>
+<p>第一次练习只做两版就够了。把共同条件写清楚，选好分支起点，再给每一版留下明确名称，通常就能更轻松地比较思路和找回原稿。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/ai-tools/"># AI工具</a><a href="https://haopianyi.blog/tags/chatgpt/"># ChatGPT</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-11-18-vpn-browser-extension-scope/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先选起点，再开分支</a><a class="level-2" href="#heading-1">用一场读书会，练习怎么选择起点</a><a class="level-2" href="#heading-2">两条聊天，起容易分辨的名字</a><a class="level-2" href="#heading-3">比较结果时，给两版用同一把尺子</a><a class="level-2" href="#heading-4">没找到入口，可以先做一个小范围尝试</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/70a362f7-27d5-4411-b387-16cfdd040347/","pageTitle":"ChatGPT 想换个方案又怕弄乱原稿？从中途创建对话分支","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
