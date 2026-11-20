@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>安卓手机开着 VPN，电脑连接热点后还要单独设置吗？ · 小宇</title>
+<meta name="description" content="安卓手机开着VPN，电脑连接热点后还要单独设置吗？根据Android与Proton官方说明，讲清普通热点共享的连接范围，提供电脑VPN设置、IP出口核对和故障排查方法。">
+<meta name="keywords" content="安卓热点,VPN热点共享,VPN客户端,科学上网,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-11-20-android-hotspot-vpn-scope/">
+<meta property="og:title" content="安卓手机开着 VPN，电脑连接热点后还要单独设置吗？">
+<meta property="og:description" content="安卓手机开着VPN，电脑连接热点后还要单独设置吗？根据Android与Proton官方说明，讲清普通热点共享的连接范围，提供电脑VPN设置、IP出口核对和故障排查方法。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-11-20-android-hotspot-vpn-scope/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安卓手机开着 VPN，电脑连接热点后还要单独设置吗？">
+<meta name="twitter:description" content="安卓手机开着VPN，电脑连接热点后还要单独设置吗？根据Android与Proton官方说明，讲清普通热点共享的连接范围，提供电脑VPN设置、IP出口核对和故障排查方法。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-11-20T09:10:05&#43;08:00"><meta property="article:modified_time" content="2026-11-20T09:11:06&#43;08:00"><meta property="article:tag" content="VPN"><meta property="article:tag" content="网络工具"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-11-20-android-hotspot-vpn-scope/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-11-20T09:11:06+08:00","datePublished":"2026-11-20T09:10:05+08:00","description":"安卓手机开着VPN，电脑连接热点后还要单独设置吗？根据Android与Proton官方说明，讲清普通热点共享的连接范围，提供电脑VPN设置、IP出口核对和故障排查方法。","headline":"安卓手机开着 VPN，电脑连接热点后还要单独设置吗？","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-11-20-android-hotspot-vpn-scope/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-11-20-android-hotspot-vpn-scope/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-11-20-android-hotspot-vpn-scope/","name":"安卓手机开着 VPN，电脑连接热点后还要单独设置吗？","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">安卓手机开着 VPN，电脑连接热点后还要单独设置吗？</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">安卓手机开着 VPN，电脑连接热点后还要单独设置吗？</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-11-20T09:10:05&#43;08:00">2026-11-20</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/vpn-tools/">VPN与网络工具</a></div>
+</header>
+<div class="prose"><p>手机已经连上 VPN，再把热点打开，让笔记本电脑连进来，电脑是不是也会自动经过 VPN？在普通安卓热点共享的情况下，不能这样认定。需要在电脑上单独确认连接，手机上的成功提示代替不了电脑的结果。</p>
+<p>本文针对安卓手机通过移动数据开热点、没有另行配置 VPN 共享的常见场景，资料核对日期为 <strong>2026 年 11 月 20 日</strong>。操作思路依据官方资料整理，未进行独立设备测试。</p>
+<h2 id="vpn-">热点分享了网络，VPN 要另查</h2>
+<p>热点可以理解为手机临时提供的无线网络。电脑连上它，便能借用手机的移动数据，也就是手机卡流量上网。Google 官方把这种方式称为网络共享，并说明部分手机也能共享已有的无线网络。<a href="https://support.google.com/android/answer/9059108?hl=zh-Hans">Android 官方热点说明</a></p>
+<p>VPN 则是给联网请求安排另一条通道的工具。Proton 官方说明，普通安卓热点不能直接把手机的 VPN 连接共享给其他设备；特殊共享方式通常需要额外的高级设置。官方提供的一种办法，是让连接热点的设备自己运行 VPN 应用。<a href="https://protonvpn.com/support/share-vpn-connection-android-hotspot">Proton 官方热点与 VPN 说明</a></p>
+<p>因此，先把“电脑借手机上网”和“电脑经过 VPN”当作两项检查。只完成前一项，还不能替后一项下结论。</p>
+<h2 id="heading">先确认电脑能用热点正常联网</h2>
+<p>在手机上查看热点名称和密码，再到电脑的无线网络列表里选择对应名称、输入密码连接。这是 Google 官方给出的基本连接顺序。<a href="https://support.google.com/android/answer/9059108?hl=zh-Hans">Android 官方连接步骤</a></p>
+<p>记下电脑原来使用的网络，确认它现在连的是手机热点。然后在电脑上打开一个普通网页，观察能否加载，记录错误文字。</p>
+<p>如果电脑连热点都失败，就先查名称、密码和手机的热点状态；如果已经连上，却连普通网页也打不开，再检查手机移动数据和网络共享条件。</p>
+<p>Google 提醒，运营商可能对网络共享设置限制或另行收费。遇到这类提示，先向自己的运营商核对，不要把所有失败都算到 VPN 服务上。<a href="https://support.google.com/android/answer/9059108?hl=zh-Hans">Android 官方共享条件</a></p>
+<h2 id="-vpn">再让电脑连接自己的 VPN</h2>
+<p>电脑能够正常使用热点后，再按所用服务的官方说明，安装适合电脑系统的 VPN 客户端，也就是电脑上用来连接 VPN 的软件，登录并建立连接。Proton 的官方热点说明也把“在连接设备上运行应用”列为可行做法。<a href="https://protonvpn.com/support/share-vpn-connection-android-hotspot">Proton 官方连接设备方案</a></p>
+<p>连接前，查看自己的账号是否允许手机、电脑同时在线，以及相应功能适用什么套餐。不要因为已经在手机上付费，就猜测所有设备都能同时使用，也不必还没看清限制就重复购买。</p>
+<p>这一步完成后，分别记下两台设备的状态。比如“手机已连接，电脑仍在重连”，就能明确下一步应查看电脑客户端的报错，而不是继续操作手机按钮。</p>
+<h2 id="heading-1">用电脑自己的结果核对出口</h2>
+<p>IP 地址可以先理解为网站看到的联网出口地址。Proton 的官方检查方法，是记录连接前的 IP，再连接 VPN、重新查询并比较。<a href="https://protonvpn.com/support/vpn-ip-change">Proton 官方 IP 核对方法</a></p>
+<p>实际检查时，在电脑自己的浏览器中打开<a href="https://protonvpn.com/what-is-my-ip-address">官方 IP 查询工具</a>，记下时间和结果；电脑客户端连接成功后，再按官方方法重新核对。官方步骤还包含清理浏览器缓存和 Cookie：前者是暂存的网页资料，后者是网站保存登录等状态的小记录。确实需要按此步骤处理时，先保存正在填写的内容，部分网站之后可能需要重新登录。</p>
+<p>不要拿手机上的查询截图当作电脑的结果。如果电脑还开着浏览器代理扩展，也把它记进检查记录，便于解释浏览器和其他软件为什么不同。</p>
+<p>出口查询只提供当前请求的线索。最后仍要在电脑上完成实际任务：需要查看的网页能否打开，需要使用的软件能否正常工作。</p>
+<h2 id="heading-2">遇到问题，按结果往回查</h2>
+<p>可以保留下面这张检查表，每次只处理当前失败的那一项。</p>
+<table>
+<thead>
+<tr>
+<th>当前情况</th>
+<th>优先核对</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>电脑找不到或连不上热点</td>
+<td>热点名称、密码、开关状态</td>
+</tr>
+<tr>
+<td>连上热点，普通网页打不开</td>
+<td>手机移动数据、网络共享条件</td>
+</tr>
+<tr>
+<td>普通网页正常，电脑 VPN 连接失败</td>
+<td>电脑客户端的错误、账号与连接设置</td>
+</tr>
+<tr>
+<td>电脑 VPN 已连接，某个服务仍失败</td>
+<td>具体服务的提示和对应软件设置</td>
+</tr>
+</tbody>
+</table>
+<p>求助时，把手机型号、安卓版本、电脑系统、VPN 应用名称，以及失败发生在哪一步整理出来。截图中只保留需要的状态和报错，遮住账号与完整配置内容。</p>
+<p>日常使用科学上网工具时，先分清是哪台设备需要连接，再逐项检查。热点负责提供网络入口，电脑上的实际连接和任务结果，才是判断这台电脑是否设置妥当的依据。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/vpn/"># VPN</a><a href="https://haopianyi.blog/tags/network-tools/"># 网络工具</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-11-19-chatgpt-branch-alternative/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#vpn-">热点分享了网络，VPN 要另查</a><a class="level-2" href="#heading">先确认电脑能用热点正常联网</a><a class="level-2" href="#-vpn">再让电脑连接自己的 VPN</a><a class="level-2" href="#heading-1">用电脑自己的结果核对出口</a><a class="level-2" href="#heading-2">遇到问题，按结果往回查</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/48cdfef2-123e-4bbe-bd44-b429adba55d4/","pageTitle":"安卓手机开着 VPN，电脑连接热点后还要单独设置吗？","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
