@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clash 提示证书过期或未生效？先核对 Windows 时间 · 小宇</title>
+<meta name="description" content="Clash证书过期或未生效怎么排查？依据微软、Go、Mihomo及Clash Verge Rev官方资料，说明Windows时间核对、相同操作重试、证书验证选项与日志整理方法。">
+<meta name="keywords" content="Clash教程,Clash证书错误,Windows时间设置,科学上网,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-11-24-clash-certificate-clock/">
+<meta property="og:title" content="Clash 提示证书过期或未生效？先核对 Windows 时间">
+<meta property="og:description" content="Clash证书过期或未生效怎么排查？依据微软、Go、Mihomo及Clash Verge Rev官方资料，说明Windows时间核对、相同操作重试、证书验证选项与日志整理方法。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-11-24-clash-certificate-clock/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clash 提示证书过期或未生效？先核对 Windows 时间">
+<meta name="twitter:description" content="Clash证书过期或未生效怎么排查？依据微软、Go、Mihomo及Clash Verge Rev官方资料，说明Windows时间核对、相同操作重试、证书验证选项与日志整理方法。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-11-24T12:51:04&#43;08:00"><meta property="article:modified_time" content="2026-11-24T12:51:15&#43;08:00"><meta property="article:tag" content="Clash"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-11-24-clash-certificate-clock/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-11-24T12:51:15+08:00","datePublished":"2026-11-24T12:51:04+08:00","description":"Clash证书过期或未生效怎么排查？依据微软、Go、Mihomo及Clash Verge Rev官方资料，说明Windows时间核对、相同操作重试、证书验证选项与日志整理方法。","headline":"Clash 提示证书过期或未生效？先核对 Windows 时间","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-11-24-clash-certificate-clock/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-11-24-clash-certificate-clock/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-11-24-clash-certificate-clock/","name":"Clash 提示证书过期或未生效？先核对 Windows 时间","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">Clash 提示证书过期或未生效？先核对 Windows 时间</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">Clash 提示证书过期或未生效？先核对 Windows 时间</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-11-24T12:51:04&#43;08:00">2026-11-24</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/client-guides/">客户端教程</a></div>
+</header>
+<div class="prose"><p>Clash 更新订阅或连接节点时，出现“证书已过期或尚未生效”的提示，可以先核对电脑的日期和时间。电脑时钟如果偏离真实日期，证书日期的判断也可能跟着出错。</p>
+<p>本文以 <strong>Windows 11 上的 Clash Verge Rev</strong> 为使用场景，资料核对日期为 <strong>2026 年 11 月 24 日</strong>。下面是依据官方资料整理的排查顺序，未进行独立设备测试。</p>
+<h2 id="heading">先读完整错误，确认是不是日期问题</h2>
+<p>证书可以先理解为建立加密连接时，用来核对对方身份的一份资料，其中包含生效和到期时间。</p>
+<p>遇到 <code>x509: certificate has expired or is not yet valid</code> 这类文字，要继续看后面的日期。Go 官方的对应校验代码会把当前时间与证书有效区间比较；未指定其他校验时间时，使用系统当前时间。<a href="https://go.dev/src/crypto/x509/verify.go">Go 官方证书校验实现</a></p>
+<table>
+<thead>
+<tr>
+<th>错误后半段的线索</th>
+<th>通俗理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>当前时间在生效日期之前</td>
+<td>校验时认为证书还没到可使用的时间</td>
+</tr>
+<tr>
+<td>当前时间在到期日期之后</td>
+<td>校验时认为证书已经超过有效期</td>
+</tr>
+</tbody>
+</table>
+<p>先保留完整文字，不要只截下“过期”两个字。如果提示的是其他证书问题，就应按对应错误继续查，不能都归到电脑时钟上。</p>
+<h2 id="-windows-">在 Windows 里核对日期、时间和时区</h2>
+<p>微软官方给出的入口是：“开始 → 设置 → 时间和语言 → 日期和时间”。先把电脑显示的年月日和时间，与已经确认准确的时间对照。<a href="https://support.microsoft.com/zh-cn/windows/experience/personalization/set-time-date-and-time-zone-settings-in-windows">微软官方时间设置说明</a></p>
+<p>有明显偏差时，查看“自动设置时间”是否开启。时区是地区时间的换算规则，也要单独核对；官方提供“自动设置时区”，也允许关闭自动选项后，在时区列表中手动选择。<a href="https://support.microsoft.com/zh-cn/windows/experience/personalization/set-time-date-and-time-zone-settings-in-windows">微软官方时区设置步骤</a></p>
+<p>不要只看右下角的小时和分钟，还要看年份、月份和日期。设置无法修改时，记下界面提示再求助。调整完成后，重新确认电脑显示的是实际的当前时间。</p>
+<h2 id="heading-1">调准后，重做同一个操作</h2>
+<p>先记录刚才是哪一步失败：更新订阅、测试某条节点，还是访问某个网页。订阅是领取连接配置的地址，节点是连接列表里可选的出口，报错位置不同，接下来需要核对的地址也可能不同。</p>
+<p>保留原来的节点和配置，调准时间后只重试刚才失败的那一步。一次只改变时间设置，更方便比较前后结果。</p>
+<p>举个虚构例子：某张证书在十一月一日开始有效、十二月一日到期，真实日期是十一月二十四日，电脑却显示十月一日。按日期比较，电脑会把它看成尚未生效。恢复真实日期后，仍要重新验证连接，不能仅凭这个例子保证一定恢复。</p>
+<p>这份例子只说明为什么值得先查时钟，不代表你的服务商使用了这些证书日期。</p>
+<h2 id="heading-2">“跳过验证”没有修好证书日期</h2>
+<p>配置里可能见到 <code>skip-cert-verify</code>。Mihomo 官方说明，它的作用是跳过证书验证，适用于使用 TLS 的协议。TLS 可以先理解为建立加密连接的一套方式。<a href="https://wiki.metacubex.one/config/proxies/tls/#skip-cert-verify">Mihomo 官方配置说明</a></p>
+<p>按照这个功能的含义，即使跳过检查后错误不再出现，也不能据此证明证书日期已经正确。这是根据选项用途作出的判断，不是本文的实测结论。</p>
+<p>新手处理日期报错时，先核对电脑时间和连接地址，再请服务商检查证书与配置。不要把整份配置中的验证选项批量改掉，那样会让后续检查更难对照。</p>
+<h2 id="heading-3">时间正确仍报错，带着日志继续查</h2>
+<p>先记下时间已核对、失败步骤、节点名称或相关网站，以及完整日期提示。如果只在某条连接上失败，再与另一条连接做比较；如果发生在订阅更新时，就请服务商核对订阅地址。</p>
+<p>Clash Verge Rev 官方日志说明建议重新操作一次，让错误被记录，再取对应日期的日志。官方也区分软件窗口的日志和内核日志；内核就是实际处理连接的组件，应按问题类型选择。<a href="https://www.clashverge.dev/guide/log.html">Clash Verge Rev 官方导出日志说明</a></p>
+<p>求助时保留报错日期和前后几行相关信息，遮住完整订阅链接、密码等账号内容。可以这样描述：“Windows 时间已核对，更新订阅时仍出现同一日期错误，附对应日志，请协助确认该地址的证书状态。”</p>
+<p>把检查过程留成几条记录，下次使用科学上网工具遇到类似提示，就能从已确认的环节继续查，减少反复切换节点和修改配置的次数。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/clash/"># Clash</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-11-23-chatgpt-temporary-chat-choices/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先读完整错误，确认是不是日期问题</a><a class="level-2" href="#-windows-">在 Windows 里核对日期、时间和时区</a><a class="level-2" href="#heading-1">调准后，重做同一个操作</a><a class="level-2" href="#heading-2">“跳过验证”没有修好证书日期</a><a class="level-2" href="#heading-3">时间正确仍报错，带着日志继续查</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/7eebb7ab-b54c-4963-921d-c406d597c9c6/","pageTitle":"Clash 提示证书过期或未生效？先核对 Windows 时间","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
