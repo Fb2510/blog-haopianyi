@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="canglan">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clash 手动测速正常，自动检查却超时？先分清测试地址 · 小宇</title>
+<meta name="description" content="Clash 手动测速正常、自动检查超时怎么办？依据 Clash Verge Rev 与 Mihomo 官方资料，讲清默认测试链接和配置检查地址的区别，用简单记录表减少节点测速与机场测速中的误判。">
+<meta name="keywords" content="Clash,节点测速,机场测速,科学上网,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://haopianyi.blog/posts/daily-2026-11-28-clash-test-url-scope/">
+<meta property="og:title" content="Clash 手动测速正常，自动检查却超时？先分清测试地址">
+<meta property="og:description" content="Clash 手动测速正常、自动检查超时怎么办？依据 Clash Verge Rev 与 Mihomo 官方资料，讲清默认测试链接和配置检查地址的区别，用简单记录表减少节点测速与机场测速中的误判。">
+<meta property="og:url" content="https://haopianyi.blog/posts/daily-2026-11-28-clash-test-url-scope/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="小宇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp"><meta property="og:image:alt" content="小宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clash 手动测速正常，自动检查却超时？先分清测试地址">
+<meta name="twitter:description" content="Clash 手动测速正常、自动检查超时怎么办？依据 Clash Verge Rev 与 Mihomo 官方资料，讲清默认测试链接和配置检查地址的区别，用简单记录表减少节点测速与机场测速中的误判。">
+<meta name="twitter:image" content="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<meta name="author" content="小宇"><meta property="article:published_time" content="2026-11-28T09:07:36&#43;08:00"><meta property="article:modified_time" content="2026-11-28T09:07:53&#43;08:00"><meta property="article:tag" content="Clash"><meta property="article:tag" content="故障排查"><meta property="article:tag" content="科学上网">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://haopianyi.blog/posts/daily-2026-11-28-clash-test-url-scope/#article","@type":"BlogPosting","author":{"@type":"Person","name":"小宇"},"dateModified":"2026-11-28T09:07:53+08:00","datePublished":"2026-11-28T09:07:36+08:00","description":"Clash 手动测速正常、自动检查超时怎么办？依据 Clash Verge Rev 与 Mihomo 官方资料，讲清默认测试链接和配置检查地址的区别，用简单记录表减少节点测速与机场测速中的误判。","headline":"Clash 手动测速正常，自动检查却超时？先分清测试地址","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://haopianyi.blog/posts/daily-2026-11-28-clash-test-url-scope/","@type":"WebPage"},"url":"https://haopianyi.blog/posts/daily-2026-11-28-clash-test-url-scope/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://haopianyi.blog/","name":"小宇","position":1},{"@type":"ListItem","item":"https://haopianyi.blog/posts/daily-2026-11-28-clash-test-url-scope/","name":"Clash 手动测速正常，自动检查却超时？先分清测试地址","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/style.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/search.css"><script defer src="https://haopianyi.blog/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/canglan.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/reader.css">
+<link rel="icon" href="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp">
+<link rel="stylesheet" href="https://haopianyi.blog/assets/theme/artalk.css"><script defer src="https://haopianyi.blog/assets/theme/artalk.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/theme.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/reader.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/viewer.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://haopianyi.blog/assets/theme/interactions.js"></script>
+<script defer src="https://haopianyi.blog/assets/theme/canglan.js"></script>
+<meta name="msvalidate.01" content="3D562902FFD6655EA5B649095B7D8365" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS2MK9SKEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS2MK9SKEQ');
+</script>
+
+<script defer src="https://haopianyi.blog/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PS2MK9SKEQ" data-site-hosts="haopianyi.blog,www.haopianyi.blog"></script></head>
+
+<body class="reader-page canglan-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header canglan-header"><div class="header-inner">
+<a class="brand" href="https://haopianyi.blog/"><img src="https://haopianyi.blog/assets/media/a96432a1-3b99-4e22-8b59-9ed5a4053154.webp" alt="" width="32" height="32"><span>小宇</span></a>
+<a class="search-toggle" href="https://haopianyi.blog/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索文章" title="搜索文章"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="search-label">搜索文章</span><kbd class="search-shortcut" hidden>Ctrl K</kbd></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://haopianyi.blog/">首页</a></nav>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单"><svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+</div></header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://haopianyi.blog/">小宇</a></li><li><span aria-current="page">Clash 手动测速正常，自动检查却超时？先分清测试地址</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>文章</div>
+<h1 data-pagefind-meta="title">Clash 手动测速正常，自动检查却超时？先分清测试地址</h1>
+<div class="metadata" data-pagefind-ignore><span>小宇</span><time datetime="2026-11-28T09:07:36&#43;08:00">2026-11-28</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://haopianyi.blog/categories/client-guides/">客户端教程</a></div>
+</header>
+<div class="prose"><p>Clash 手动点一次测速能出现数字，自动选择分组里却仍有超时；改了“默认测试链接”，结果也没按预想变化。先别急着换机场，检查这两次测试是否真的使用了相同条件。</p>
+<p>“节点”是可以选择的代理连接出口；“测试地址”是检查时访问的网址。网址不同，测试任务就不同。做机场测速时，先把这项条件记清楚，才能看懂结果之间的差别。</p>
+<p>**资料核对日期：2026 年 11 月 28 日。**本文以 Clash Verge Rev 和其使用的 Mihomo 联网组件为例，依据项目资料整理，未进行独立节点测速。</p>
+<h2 id="heading">默认测试链接，不会自动改写配置</h2>
+<p>Clash Verge Rev 项目当前界面文案列出了“默认测试链接”和“测试超时时间”，并说明默认链接用于客户端请求测试，不会改变配置文件。<a href="https://github.com/clash-verge-rev/clash-verge-rev/blob/main/src/locales/zh/settings.json">项目设置说明</a></p>
+<p>所以，在设置里换了这个网址，不能据此认定自动选择分组也换成了同一个网址。这是两处设置容易混淆的地方。</p>
+<p>先在自己安装的版本中找到该项，记下完整地址和等待时限。若某个测试入口还另外指定了地址，也要一并记录；尚未确认实际使用哪一个时，就写“待确认”，不要直接拿默认值作结论。</p>
+<h2 id="heading-1">自动检查，还要看分组自己的设置</h2>
+<p>自动选择分组，就是让程序按检查结果挑选连接出口的一组节点。Mihomo 的分组说明中，<code>url</code> 表示检查网址，<code>timeout</code> 表示最多等待多久，时间单位为毫秒；1000 毫秒等于 1 秒。<a href="https://wiki.metacubex.one/config/proxy-groups/">官方分组字段说明</a></p>
+<p>有些配置还规定网址必须返回某种状态才算通过。可以把它理解为：不仅等到回应，还要求回应符合约定。因此，“网址能打开”和“检查通过”也未必是同一件事。<a href="https://wiki.metacubex.one/config/proxy-groups/">官方通过条件说明</a></p>
+<p>查看配置时先认清分组名称，再核对这些项目。不熟悉配置结构，就把分组名称和现象交给配置提供方确认，不必为了消除红字一次改很多地方。</p>
+<h2 id="heading-2">节点来自集合时，再确认检查属于哪里</h2>
+<p>有些配置会从一份独立列表引入节点，这在文档中叫“代理集合”。它也有自己的检查网址和等待时间，写在 <code>health-check</code> 这一部分。<a href="https://wiki.metacubex.one/config/proxy-providers/">官方集合检查说明</a></p>
+<p>官方分组文档同时指出，分组的检查网址不会直接覆盖通过集合引入的那些节点检查。看到节点都排在一个分组里，不能就认定它们的检查条件完全一样。<a href="https://wiki.metacubex.one/config/proxy-groups/">官方检查范围说明</a></p>
+<p>可以向配置提供方直接询问：“这条节点的自动检查由分组负责，还是由节点集合负责？检查网址和时限分别是什么？”比只说“测速坏了”更容易得到有效答复。</p>
+<h2 id="heading-3">做对照时，一轮只改一个条件</h2>
+<p>先保持设备、网络和节点不变，把手动测试与自动检查分成两条记录。条件不清楚时，先查清楚，再比较数字。</p>
+<p>下面是记录模板，不是实测结果：</p>
+<table>
+<thead>
+<tr>
+<th>检查项目</th>
+<th>手动测试</th>
+<th>自动检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间和节点</td>
+<td>自己填写</td>
+<td>自己填写</td>
+</tr>
+<tr>
+<td>实际测试网址</td>
+<td>自己填写或待确认</td>
+<td>自己填写或待确认</td>
+</tr>
+<tr>
+<td>等待时限</td>
+<td>自己填写</td>
+<td>自己填写</td>
+</tr>
+<tr>
+<td>结果</td>
+<td>数字、超时或错误原文</td>
+<td>数字、超时或错误原文</td>
+</tr>
+</tbody>
+</table>
+<p>比如，假设手动测试访问网址甲，自动检查访问网址乙，这时就只能说两项任务结果不同。还不能把差异全部归到节点上，也不能把其中一次成功当作整条线路稳定的证明。</p>
+<p>若准备调整，先保存原值，只改当前要核对的一项，再比较前后结果。</p>
+<h2 id="heading-4">最后回到自己真正要完成的任务</h2>
+<p>再打开自己需要使用的网站，记录能否加载、具体哪里失败，并确认这次访问确实经过正在检查的节点。无法确认时，也在记录里标出来。</p>
+<p>手动测试成功，只能提供这次检查的线索；自动检查超时，则需要结合它的地址、时限和通过条件继续查。两者都不能直接代替日常使用体验。</p>
+<p>求助时，把客户端版本、节点名称、两处检查条件、发生时间和错误文字放在一起。先把测试对象说清楚，往往比连续点很多次测速更有帮助。</p>
+<p><em>字段含义和作用范围来自项目官方资料；排查顺序、记录表及假设示例为原创整理，不构成任何机场稳定性保证。</em></p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://haopianyi.blog/tags/clash/"># Clash</a><a href="https://haopianyi.blog/tags/troubleshooting/"># 故障排查</a><a href="https://haopianyi.blog/tags/internet-access/"># 科学上网</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://haopianyi.blog/posts/%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B%E4%B8%8E%E6%8E%A8%E8%8D%90/">← 上一篇</a><a href="https://haopianyi.blog/posts/daily-2026-11-27-chatgpt-scanned-pdf-page-check/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">默认测试链接，不会自动改写配置</a><a class="level-2" href="#heading-1">自动检查，还要看分组自己的设置</a><a class="level-2" href="#heading-2">节点来自集合时，再确认检查属于哪里</a><a class="level-2" href="#heading-3">做对照时，一轮只改一个条件</a><a class="level-2" href="#heading-4">最后回到自己真正要完成的任务</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=VDhOlcf4" target="_blank" rel="noopener noreferrer">FlyBit机场</a><a href="https://home.99ba2026.best/#/register?code=lsE7jbti" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/oldsix985" target="_blank" rel="noopener noreferrer">Telegram联系我</a></nav>
+<span>© 2026@小宇的博客</span>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://haopianyi.blog/pagefind/pagefind-component-ui.js" data-stylesheet="https://haopianyi.blog/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://haopianyi.blog/pagefind/" base-url="https://haopianyi.blog/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/3acfac4d-1b70-4630-b6ed-01bd70bd6f48/","pageTitle":"Clash 手动测速正常，自动检查却超时？先分清测试地址","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-0bda8c32-a2ef-47f7-bdc9-9903841eba42","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
